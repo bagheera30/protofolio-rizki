@@ -4,7 +4,7 @@ import Typed from "typed.js";
 import Navbar from "./navbar.vue";
 import { Github, Linkedin, Phone } from "lucide-vue-next";
 
-// const url_profile = import.meta.env.VITE_URL_PROFILE;
+const url_profile = import.meta.env.VITE_URL_PROFILE;
 const projects = [
   {
     title: "Audit Trail Management System (ATMS)",
@@ -88,11 +88,11 @@ onMounted(() => {
         <div
           class="w-48 h-60 rounded-2xl shadow-lg overflow-hidden ring-4 ring-blue-400 hover:scale-105 transition"
         >
-          <!-- <img
+          <img
             alt="profile"
             :src="url_profile"
             class="object-cover w-full h-full"
-          /> -->
+          />
         </div>
       </div>
     </section>
