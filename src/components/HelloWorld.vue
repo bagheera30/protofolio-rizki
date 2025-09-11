@@ -16,13 +16,13 @@ const projects = [
     title: "Wspend",
     desc: "Aplikasi web toko online dengan fitur katalog, keranjang belanja, dan sistem pembayaran.",
     link: "https://web-ecommers.vercel.app/",
-    stack: ["Vue.js", "Tailwind", "Vercel"],
+    stack: ["Astro.Js", "Tailwind", "Vercel"],
   },
   {
     title: "Backend Pegawai Management",
     desc: "Membangun backend untuk management projek antara pegawai dengan manager.",
     link: "#",
-    stack: ["Express", "MongoDB", "Clean Architecture"],
+    stack: ["Express", "Neo4j", "Swagger"],
   },
 ];
 
@@ -45,7 +45,7 @@ onMounted(() => {
 
     <!-- Hero Section -->
     <section
-      class="flex flex-col-reverse lg:flex-row items-center mt-12 mx-10 justify-between gap-10"
+      class="flex flex-col-reverse pt-16 lg:flex-row items-center mt-12 mx-10 justify-between gap-10"
     >
       <div class="max-w-xl text-center lg:text-left">
         <h1
