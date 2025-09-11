@@ -3,7 +3,7 @@ import { onMounted, ref } from "vue";
 import Typed from "typed.js";
 import Navbar from "./navbar.vue";
 import { Github, Linkedin, Phone } from "lucide-vue-next";
-
+// @ts-ignore   <-- ini supaya TypeScript plugin nggak bawel
 const url_profile = import.meta.env.VITE_URL_PROFILE;
 const projects = [
   {
