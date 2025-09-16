@@ -14,6 +14,13 @@ onMounted(() => {
 onBeforeUnmount(() => {
   window.removeEventListener("scroll", handleScroll);
 });
+
+// daftar menu
+const menus = [
+  { name: "Home", href: "/" },
+  { name: "Projects", href: "#projects" },
+  { name: "Contact", href: "#contact" },
+];
 </script>
 
 <template>
@@ -39,17 +46,9 @@ onBeforeUnmount(() => {
       <!-- Menu Desktop -->
       <div class="hidden md:flex font-medium">
         <ul class="menu menu-horizontal px-1 space-x-4">
-          <li>
-            <a href="/" class="hover:text-gray-200 transition">Home</a>
-          </li>
-          <li>
-            <a href="#projects" class="hover:text-gray-200 transition">
-              Projects
-            </a>
-          </li>
-          <li>
-            <a href="#contact" class="hover:text-gray-200 transition">
-              Contact
+          <li v-for="menu in menus" :key="menu.name">
+            <a :href="menu.href" class="hover:text-gray-200 transition">
+              {{ menu.name }}
             </a>
           </li>
         </ul>
@@ -62,9 +61,9 @@ onBeforeUnmount(() => {
           tabindex="0"
           class="menu menu-sm dropdown-content mt-3 p-2 shadow bg-red-600 rounded-box w-40"
         >
-          <li><a href="/">Home</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li v-for="menu in menus" :key="menu.name">
+            <a :href="menu.href">{{ menu.name }}</a>
+          </li>
         </ul>
       </div>
     </div>
