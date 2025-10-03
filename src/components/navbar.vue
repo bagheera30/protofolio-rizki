@@ -18,8 +18,8 @@ onBeforeUnmount(() => {
 // daftar menu
 const menus = [
   { name: "Home", href: "/" },
-  { name: "Projects", href: "#projects" },
-  { name: "Contact", href: "#contact" },
+  { name: "Projects", href: "/projek" },
+  { name: "Contact", href: "/contact" },
 ];
 </script>
 
@@ -44,8 +44,8 @@ const menus = [
       </div>
 
       <!-- Menu Desktop -->
-      <div class="hidden md:flex font-medium">
-        <ul class="menu menu-horizontal px-1 space-x-4">
+      <div class="hidden md:flex font-bold">
+        <ul class="menu menu-horizontal px-1 space-x-4 text-lg">
           <li v-for="menu in menus" :key="menu.name">
             <a :href="menu.href" class="hover:text-gray-200 transition">
               {{ menu.name }}
