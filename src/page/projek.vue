@@ -6,6 +6,7 @@ const projects = [
     title: "Audit Trail Management System (ATMS)",
     desc: "Sistem berbasis web dengan REST API menggunakan Node.js & Express untuk mencatat log aktivitas pengguna dan integrasi dengan service lain seperti camunda dan minio.",
     link: "https://atms-project.vercel.app/",
+    img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
     stack: ["Node.js", "Express", "REST API"],
     github: "https://github.com/username/atms",
   },
@@ -59,8 +60,10 @@ const stackLogos: Record<string, string> = {
           :key="index"
           class="bg-gray-800/70 backdrop-blur-md rounded-2xl shadow-lg p-6 hover:shadow-xl hover:-translate-y-2 transition-all duration-500 flex flex-col"
         >
-          <!-- Judul -->
-          <h3 class="text-xl font-semibold text-white mb-2">
+          <figure class="size-36">
+            <img :src="project.img" :alt="project.title" />
+          </figure>
+          <h3 class="text-xl pt-5 font-semibold text-white mb-2">
             {{ project.title }}
           </h3>
 

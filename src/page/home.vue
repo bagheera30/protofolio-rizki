@@ -3,7 +3,6 @@ import { onMounted, ref } from "vue";
 import Typed from "typed.js";
 import { Github, Linkedin, Phone } from "lucide-vue-next";
 import AOS from "aos";
-import "aos/dist/aos.css";
 
 // @ts-ignore
 const url_profile = import.meta.env.VITE_URL_PROFILE;
@@ -30,11 +29,10 @@ onMounted(() => {
 
 <template>
   <div
-    class="bg-gradient-to-b from-gray-900 via-gray-800 to-black min-h-screen text-white"
+    class="bg-gradient-to-b from-gray-900 via-gray-800 to-black min-h-auto text-white"
   >
-    <!-- Hero Section -->
     <section
-      class="flex flex-col-reverse pt-20 lg:flex-row items-center mt-12 mx-10 justify-between gap-10"
+      class="flex flex-col-reverse lg:flex-row items-center pt-7 mx-10 justify-between gap-10"
     >
       <div class="max-w-xl text-center lg:text-left" data-aos="fade-right">
         <h1

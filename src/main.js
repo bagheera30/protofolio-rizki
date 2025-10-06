@@ -7,17 +7,22 @@ const router = createRouter({
   routes: [
     {
       path: "/",
-      component: () => import("./components/HelloWorld.vue"),
+      component: () => import("./page/home.vue"),
     },
     {
       path: "/projek",
-      component: () => import("./components/projek.vue"),
+      component: () => import("./page/projek.vue"),
     },
     {
       path: "/contact",
-      component: () => import("./components/contact.vue"),
+      component: () => import("./page/contact.vue"),
+    },
+    {
+      path: "/cartived",
+      component: () => import("./page/cartifide.vue"),
     },
   ],
   history: createWebHistory(),
 });
+
 createApp(App).use(router).mount("#app");

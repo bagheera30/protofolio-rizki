@@ -3,14 +3,13 @@ import { ref } from "vue";
 import {
   Mail,
   Phone,
-  MapPin,
   Send,
   Linkedin,
   Github,
   Twitter,
+  Instagram,
 } from "lucide-vue-next";
 
-const name = ref("");
 const email = ref("");
 const message = ref("");
 const sending = ref(false);
@@ -25,7 +24,7 @@ async function handleSubmit() {
   error.value = "";
   success.value = "";
 
-  if (!name.value.trim() || !email.value.trim() || !message.value.trim()) {
+  if (!email.value.trim() || !message.value.trim()) {
     error.value = "Mohon isi semua field.";
     return;
   }
@@ -39,46 +38,35 @@ async function handleSubmit() {
   await new Promise((r) => setTimeout(r, 900));
   sending.value = false;
   success.value = "Pesan berhasil dikirim. Terima kasih!";
-  name.value = "";
   email.value = "";
   message.value = "";
 }
 </script>
 
 <template>
-  <div class="max-w-6xl text-black mx-auto px-4 sm:px-6 lg:px-8 py-20">
-    <!-- Grid contact + form -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-      <!-- Info Kontak -->
-      <div class="card bg-white/80 shadow-md p-6">
-        <h2 class="text-2xl font-bold mb-2">Hubungi Saya</h2>
-        <p class="text-sm text-gray-500 mb-4">
-          Punya proyek, pertanyaan, atau sekadar menyapa? Isi form di samping
-          atau gunakan detail kontak di bawah.
-        </p>
+  <div class="text-center text-white/75 grid grid-cols-1 gap-1.5">
+    <h2 class="text-3xl font-bold">HAI</h2>
+    <p class="text-gray-500">
+      Make colabartion proyek or somethink me contack this
+    </p>
+  </div>
+  <div class="max-w-6xl text-black px-4 sm:px-6 lg:px-8 py-4">
+    <div class="grid grid-cols-1 lg:grid-cols-1 gap-8">
+      <div class="card w-3xl bg-white/80 shadow-md p-6">
+        <div class="text-center">
+          <h2 class="text-2xl font-bold mb-2">Hubungi Saya</h2>
+          <p class="text-sm text-gray-500 mb-4">
+            Punya proyek, kolaborasi? Isi form di samping atau gunakan detail
+            kontak di bawah.
+          </p>
+        </div>
 
         <div class="space-y-4">
-          <div class="flex items-start gap-3">
-            <MapPin class="w-5 h-5 mt-1 text-primary" />
-            <div>
-              <div class="text-sm font-medium">Lokasi</div>
-              <div class="text-xs text-gray-500">Jakarta, Indonesia</div>
-            </div>
-          </div>
-
           <div class="flex items-start gap-3">
             <Mail class="w-5 h-5 mt-1 text-primary" />
             <div>
               <div class="text-sm font-medium">Email</div>
-              <div class="text-xs text-gray-500">rizki.alfian@example.com</div>
-            </div>
-          </div>
-
-          <div class="flex items-start gap-3">
-            <Phone class="w-5 h-5 mt-1 text-primary" />
-            <div>
-              <div class="text-sm font-medium">Telepon</div>
-              <div class="text-xs text-gray-500">+62 812 3456 7890</div>
+              <div class="text-xs text-gray-500">rizki.alfian@gmail.com</div>
             </div>
           </div>
 
@@ -92,30 +80,15 @@ async function handleSubmit() {
               <Github class="w-4 h-4" /> Github
             </a>
             <a href="#" class="btn btn-ghost btn-sm gap-2">
-              <Twitter class="w-4 h-4" /> Twitter
+              <Instagram class="w-4 h-4" /> instagram
             </a>
           </div>
         </div>
       </div>
 
-      <!-- Form -->
-      <div class="card bg-white shadow-md p-6">
-        <h3 class="text-xl font-semibold mb-4">Kirim Pesan</h3>
-
+      <div class="card max-w-2/5 bg-white/80 shadow-md p-6">
+        <h3 class="text-xl text-center font-semibold mb-4">Send Email</h3>
         <form @submit.prevent="handleSubmit" class="space-y-4">
-          <div>
-            <label class="label">
-              <span class="label-text">Nama</span>
-            </label>
-            <input
-              v-model="name"
-              type="text"
-              placeholder="Nama lengkap"
-              class="input input-bordered w-full"
-              required
-            />
-          </div>
-
           <div>
             <label class="label">
               <span class="label-text">Email</span>
@@ -123,7 +96,7 @@ async function handleSubmit() {
             <input
               v-model="email"
               type="email"
-              placeholder="email@contoh.com"
+              placeholder="email@example.com"
               class="input input-bordered w-full"
               required
             />
@@ -151,20 +124,6 @@ async function handleSubmit() {
               <span v-if="!sending">Kirim</span>
               <span v-else>Mengirim...</span>
             </button>
-
-            <button
-              type="button"
-              class="btn btn-outline"
-              @click="
-                (name = ''),
-                  (email = ''),
-                  (message = ''),
-                  (error = ''),
-                  (success = '')
-              "
-            >
-              Reset
-            </button>
           </div>
 
           <div>
@@ -179,17 +138,6 @@ async function handleSubmit() {
             email atau telepon.
           </p>
         </div>
-      </div>
-    </div>
-
-    <!-- Map -->
-    <div class="mt-8">
-      <div class="rounded-lg overflow-hidden shadow-inner">
-        <iframe
-          class="w-full h-56 sm:h-72 lg:h-96"
-          src="https://www.openstreetmap.org/export/embed.html?bbox=107.139%2C-6.336%2C107.150%2C-6.328&amp;layer=mapnik&marker=-6.3324%2C107.1447"
-          title="map"
-        ></iframe>
       </div>
     </div>
   </div>

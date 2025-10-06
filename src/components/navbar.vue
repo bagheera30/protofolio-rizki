@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { onMounted, ref, onBeforeUnmount } from "vue";
-
+import menus from "../data/menu";
+import { Mail } from "lucide-vue-next";
 const isScrolled = ref(false);
 
 const handleScroll = () => {
@@ -14,13 +15,6 @@ onMounted(() => {
 onBeforeUnmount(() => {
   window.removeEventListener("scroll", handleScroll);
 });
-
-// daftar menu
-const menus = [
-  { name: "Home", href: "/" },
-  { name: "Projects", href: "/projek" },
-  { name: "Contact", href: "/contact" },
-];
 </script>
 
 <template>
@@ -52,6 +46,9 @@ const menus = [
             </a>
           </li>
         </ul>
+        <button class="ml-1.5 b btn-circle">
+          <Mail :size="27" />
+        </button>
       </div>
 
       <!-- Mobile Menu -->
@@ -64,6 +61,9 @@ const menus = [
           <li v-for="menu in menus" :key="menu.name">
             <a :href="menu.href">{{ menu.name }}</a>
           </li>
+          <button class="pl-2.5 pt-2.5" href="">
+            <Mail :size="24" />
+          </button>
         </ul>
       </div>
     </div>

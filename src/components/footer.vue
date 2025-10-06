@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Github, Linkedin } from "lucide-vue-next";
+import menus from "../data/menu";
 </script>
 <template>
   <footer class="footer sm:footer-horizontal p-10">
@@ -27,11 +28,14 @@ import { Github, Linkedin } from "lucide-vue-next";
       </div>
     </nav>
     <nav>
-      <h6 class="footer-title">Company</h6>
-      <a class="link link-hover">About us</a>
-      <a class="link link-hover">Contact</a>
-      <a class="link link-hover">Jobs</a>
-      <a class="link link-hover">Press kit</a>
+      <h6 class="footer-title">quik access</h6>
+      <ul class="list-none flex flex-col gap-2">
+        <li v-for="menu in menus" :key="menu.name">
+          <a :href="menu.href" class="link link-hover text-sm">
+            {{ menu.name }}
+          </a>
+        </li>
+      </ul>
     </nav>
     <nav>
       <h6 class="footer-title">Social</h6>

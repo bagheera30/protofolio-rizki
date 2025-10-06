@@ -7,7 +7,9 @@ import Footer from "./components/footer.vue";
   <div
     class="bg-gradient-to-b from-gray-900 via-gray-800 to-black min-h-screen text-white"
   >
-    <Navbar />
+    <div class="pb-20">
+      <Navbar />
+    </div>
     <router-view />
     <Footer />
   </div>
