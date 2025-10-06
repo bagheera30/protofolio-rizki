@@ -30,7 +30,7 @@ onBeforeUnmount(() => {
       <!-- Brand -->
       <div class="flex-1">
         <a
-          href="#"
+          href="/"
           class="text-2xl font-bold tracking-wide hover:text-gray-200 transition"
         >
           Rizki Alfian
