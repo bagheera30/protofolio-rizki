@@ -31,6 +31,7 @@ export default async function handler(req, res) {
         <p>${message}</p>
       `,
     });
+    console.log(email, message);
 
     return res
       .status(200)

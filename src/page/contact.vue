@@ -27,6 +27,7 @@ async function handleSubmit() {
     error.value = "Please fill in all fields.";
     return;
   }
+  console.log("test ", email.value);
   if (!validateEmail(email.value)) {
     error.value = "Invalid email address.";
     return;
