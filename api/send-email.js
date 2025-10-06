@@ -21,7 +21,7 @@ export default async function handler(req, res) {
         pass: process.env.EMAIL_PASS, // app password Gmail
       },
     });
-
+    console.log(email, message);
     await transporter.sendMail({
       from: email,
       to: process.env.EMAIL_USER, // kirim ke kamu sendiri

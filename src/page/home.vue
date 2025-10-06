@@ -1,16 +1,53 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
 import Typed from "typed.js";
-import { Github, Linkedin, Phone } from "lucide-vue-next";
+import {
+  Github,
+  Linkedin,
+  Phone,
+  FileDown,
+  ExternalLink,
+} from "lucide-vue-next";
 import AOS from "aos";
 
 // @ts-ignore
 const url_profile = import.meta.env.VITE_URL_PROFILE;
-
 const typedElement = ref(null);
 
+// Tambah ikon pakai class dari devicon (pastikan sudah import di main.css)
+const techStacks = [
+  { name: "Node.js", icon: "devicon-nodejs-plain colored" },
+  { name: "Express.js", icon: "devicon-express-original colored" },
+  { name: "Vue.js", icon: "devicon-vuejs-plain colored" },
+  { name: "TypeScript", icon: "devicon-typescript-plain colored" },
+  { name: "TailwindCSS", icon: "devicon-tailwindcss-plain colored" },
+  { name: "MySQL", icon: "devicon-mysql-plain colored" },
+  { name: "Docker", icon: "devicon-docker-plain colored" },
+  { name: "Git", icon: "devicon-git-plain colored" },
+];
+
+const projects = [
+  {
+    title: "Audit Trail Management System (ATMS)",
+    desc: "Sistem web dengan Node.js & Express untuk mencatat log aktivitas pengguna dan integrasi dengan Camunda dan Minio.",
+    link: "https://atms-project.vercel.app/",
+    stack: ["Node.js", "Express", "REST API"],
+  },
+  {
+    title: "Personal Portfolio Website",
+    desc: "Website portfolio interaktif menggunakan Vue.js dan Tailwind CSS dengan animasi AOS dan Typed.js.",
+    link: "https://portfolio-rizkialfian.vercel.app/",
+    stack: ["Vue.js", "TailwindCSS", "AOS"],
+  },
+  {
+    title: "Inventory Management System",
+    desc: "Aplikasi web CRUD untuk manajemen stok barang dengan autentikasi JWT dan database MySQL.",
+    link: "https://inventory-app.vercel.app/",
+    stack: ["Node.js", "Express", "MySQL"],
+  },
+];
+
 onMounted(() => {
-  // init typed
   new Typed(typedElement.value, {
     strings: ["Backend Developer", "Frontend Developer", "Mobile Developer"],
     typeSpeed: 70,
@@ -19,9 +56,8 @@ onMounted(() => {
     loop: true,
   });
 
-  // init AOS
   AOS.init({
-    duration: 800,
+    duration: 900,
     once: true,
   });
 });
@@ -29,101 +65,190 @@ onMounted(() => {
 
 <template>
   <div
-    class="bg-gradient-to-b from-gray-900 via-gray-800 to-black min-h-auto text-white"
+    class="bg-gradient-to-b from-black via-gray-900 to-gray-950 min-h-screen text-white overflow-hidden"
   >
+    <!-- Hero Section -->
     <section
-      class="flex flex-col-reverse lg:flex-row items-center pt-7 mx-10 justify-between gap-10"
+      class="flex flex-col-reverse lg:flex-row items-center justify-between px-8 md:px-20 pt-16 lg:pt-28 gap-12"
     >
       <div class="max-w-xl text-center lg:text-left" data-aos="fade-right">
         <h1
-          class="text-4xl font-extrabold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent"
+          class="text-5xl font-extrabold bg-gradient-to-r from-red-500 via-pink-500 to-purple-500 bg-clip-text text-transparent"
         >
           Muhammad Rizki Alfian
         </h1>
 
-        <!-- Animasi Typing -->
-        <h2 class="text-lg text-gray-300 mt-2">
+        <h2 class="text-xl font-medium text-gray-300 mt-3 tracking-wide">
           <span ref="typedElement"></span>
         </h2>
 
-        <p class="mt-4 text-base leading-relaxed text-gray-400">
-          Seorang web developer dengan pengalaman dalam pengembangan aplikasi
-          berbasis web menggunakan Node.js, Express.js, Vue.js, dan REST API.
-          Memiliki fokus pada arsitektur layered, maintainability, dan clean
-          code.
+        <p class="mt-6 text-gray-400 leading-relaxed text-base md:text-lg">
+          Saya seorang
+          <span class="text-white font-semibold">Fullstack Developer</span>
+          dengan fokus pada arsitektur bersih, performa tinggi, dan desain
+          sistem yang terukur. Berpengalaman menggunakan
+          <span class="text-blue-400">Node.js</span>,
+          <span class="text-green-400">Vue.js</span>, dan REST API untuk
+          membangun aplikasi modern yang efisien dan mudah di-maintain.
         </p>
 
-        <div class="mt-6 flex gap-4 justify-center lg:justify-start">
+        <div class="mt-8 flex gap-4 justify-center lg:justify-start">
           <a
             href="https://drive.google.com/file/d/1dojd7cKoFxBwSa9NAE6YeNYCzTP7RM2R/view?usp=sharing"
             target="_blank"
-            class="px-6 py-2 rounded-xl bg-gradient-to-r from-blue-500 to-purple-600 text-white font-medium shadow hover:scale-110 transition duration-300"
+            class="flex items-center gap-2 px-6 py-2.5 rounded-xl bg-gradient-to-r from-red-500 to-purple-600 text-white font-semibold shadow-lg hover:scale-110 hover:shadow-red-600/50 transition duration-300"
           >
-            VIEW CV
+            <FileDown class="w-5 h-5" />
+            Lihat CV
           </a>
         </div>
       </div>
 
       <!-- Avatar -->
-      <div class="avatar" data-aos="fade-left">
+      <div class="relative group" data-aos="fade-left">
         <div
-          class="w-48 h-60 rounded-2xl shadow-lg overflow-hidden ring-4 ring-blue-400 hover:scale-110 hover:rotate-3 transition duration-500"
+          class="w-56 h-64 sm:w-64 sm:h-72 rounded-2xl overflow-hidden ring-4 ring-red-500 shadow-xl transition duration-500 group-hover:scale-110 group-hover:rotate-3"
         >
           <img
-            alt="profile"
             :src="url_profile"
+            alt="profile"
             class="object-cover w-full h-full"
           />
+        </div>
+        <div
+          class="absolute -inset-1 rounded-2xl bg-gradient-to-r from-red-500 to-purple-600 opacity-30 blur-lg group-hover:opacity-70 transition duration-500"
+        ></div>
+      </div>
+    </section>
+
+    <!-- Tech Stack Section -->
+    <section id="tech" class="mt-28 px-8 md:px-20">
+      <h1
+        class="text-3xl md:text-4xl font-bold text-center bg-gradient-to-r from-red-500 to-purple-500 bg-clip-text text-transparent mb-12"
+        data-aos="fade-up"
+      >
+        🧰 Tech Stack
+      </h1>
+
+      <div class="relative overflow-hidden">
+        <div
+          class="flex gap-10 animate-scroll whitespace-nowrap"
+          data-aos="zoom-in"
+        >
+          <div
+            v-for="tech in [...techStacks, ...techStacks]"
+            :key="tech.name + Math.random()"
+            class="flex flex-col items-center justify-center min-w-[100px] hover:scale-110 transition duration-300"
+          >
+            <i :class="tech.icon + ' text-6xl mb-2'"></i>
+            <span class="text-sm text-gray-300 font-medium">{{
+              tech.name
+            }}</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Project Section -->
-
-    <!-- Contact Section -->
-    <section id="contact" class="mt-20 mx-10">
-      <h1 class="text-3xl font-bold mb-10 text-center" data-aos="fade-up">
-        📬 Kontak Saya
+    <!-- Projects Section -->
+    <section id="projects" class="mt-28 px-8 md:px-20">
+      <h1
+        class="text-3xl md:text-4xl font-bold text-center bg-gradient-to-r from-red-500 to-purple-500 bg-clip-text text-transparent mb-12"
+        data-aos="fade-up"
+      >
+        🚀 Project Highlights
       </h1>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <!-- Github -->
+        <div
+          v-for="project in projects"
+          :key="project.title"
+          class="bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-2xl shadow-lg hover:scale-105 hover:shadow-red-600/40 transition duration-500"
+          data-aos="flip-up"
+        >
+          <h3 class="text-xl font-bold text-white mb-2">{{ project.title }}</h3>
+          <p class="text-gray-400 text-sm mb-4">{{ project.desc }}</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span
+              v-for="tag in project.stack"
+              :key="tag"
+              class="px-2 py-1 text-xs rounded-full bg-gray-700 text-gray-200"
+            >
+              {{ tag }}
+            </span>
+          </div>
+          <a
+            :href="project.link"
+            target="_blank"
+            class="inline-flex items-center gap-2 text-red-400 hover:text-purple-400 transition"
+          >
+            Lihat Proyek
+            <ExternalLink class="w-4 h-4" />
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="mt-28 px-8 md:px-20 pb-20">
+      <h1
+        class="text-3xl md:text-4xl font-bold mb-12 text-center bg-gradient-to-r from-red-500 to-purple-500 bg-clip-text text-transparent"
+        data-aos="fade-up"
+      >
+        📬 Hubungi Saya
+      </h1>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <a
           href="https://github.com/bagheera30"
           target="_blank"
-          class="flex flex-col items-center justify-center p-6 rounded-2xl bg-gradient-to-tr from-gray-800 to-gray-900 shadow-lg hover:scale-110 hover:shadow-[0_0_20px_#6366f1] transition duration-500"
+          class="flex flex-col items-center justify-center p-6 rounded-2xl bg-gradient-to-tr from-gray-800 to-gray-900 shadow-lg hover:scale-110 hover:shadow-[0_0_25px_#6366f1] transition duration-500"
           data-aos="flip-left"
         >
           <Github class="w-10 h-10 text-white mb-3" />
           <h3 class="text-lg font-semibold text-white">Github</h3>
-          <p class="text-sm text-gray-400">github.com/bagheera30</p>
+          <p class="text-sm text-gray-400 mt-1">github.com/bagheera30</p>
         </a>
 
-        <!-- WhatsApp -->
         <a
           href="https://wa.me/6281386318321"
           target="_blank"
-          class="flex flex-col items-center justify-center p-6 rounded-2xl bg-gradient-to-tr from-green-500 to-emerald-600 shadow-lg hover:scale-110 hover:shadow-[0_0_20px_#22c55e] transition duration-500"
+          class="flex flex-col items-center justify-center p-6 rounded-2xl bg-gradient-to-tr from-green-500 to-emerald-600 shadow-lg hover:scale-110 hover:shadow-[0_0_25px_#22c55e] transition duration-500"
           data-aos="flip-up"
         >
           <Phone class="w-10 h-10 text-white mb-3" />
           <h3 class="text-lg font-semibold text-white">WhatsApp</h3>
+          <p class="text-sm text-gray-200 mt-1">+62 813-8631-8321</p>
         </a>
 
-        <!-- LinkedIn -->
         <a
           href="https://www.linkedin.com/in/muhammad-rizki-alfian-a4a761222/"
           target="_blank"
-          class="flex flex-col items-center justify-center p-6 rounded-2xl bg-gradient-to-tr from-blue-500 to-indigo-600 shadow-lg hover:scale-110 hover:shadow-[0_0_20px_#3b82f6] transition duration-500"
+          class="flex flex-col items-center justify-center p-6 rounded-2xl bg-gradient-to-tr from-blue-500 to-indigo-600 shadow-lg hover:scale-110 hover:shadow-[0_0_25px_#3b82f6] transition duration-500"
           data-aos="flip-right"
         >
           <Linkedin class="w-10 h-10 text-white mb-3" />
           <h3 class="text-lg font-semibold text-white">LinkedIn</h3>
-          <p class="text-sm text-gray-300 text-center">
-            linkedin.com/in/muhammad-rizki-alfian-a4a761222/
+          <p class="text-sm text-gray-300 text-center mt-1">
+            linkedin.com/in/muhammad-rizki-alfian-a4a761222
           </p>
         </a>
       </div>
     </section>
   </div>
 </template>
+
+<style scoped>
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  display: flex;
+  animation: scroll 25s linear infinite;
+}
+</style>
