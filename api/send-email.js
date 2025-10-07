@@ -17,14 +17,13 @@ export default async function handler(req, res) {
       port: 587,
       secure: false,
       auth: {
-        user: process.env.EMAIL_USER, // email kamu
-        pass: process.env.EMAIL_PASS, // app password Gmail
+        user: process.env.EMAIL_USER, 
+        pass: process.env.EMAIL_PASS, 
       },
     });
-    console.log(email, message);
     await transporter.sendMail({
       from: email,
-      to: process.env.EMAIL_USER, // kirim ke kamu sendiri
+      to: process.env.EMAIL_USER, 
       subject: "New Message from Portfolio Contact Form",
       html: `
         <p><strong>From:</strong> ${email}</p>

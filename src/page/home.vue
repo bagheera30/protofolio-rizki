@@ -7,14 +7,15 @@ import {
   Phone,
   FileDown,
   ExternalLink,
+  Mail,
 } from "lucide-vue-next";
-import AOS from "aos";
 
+import AOS from "aos";
+import { projects } from "../data/datas";
 // @ts-ignore
 const url_profile = import.meta.env.VITE_URL_PROFILE;
 const typedElement = ref(null);
 
-// Tambah ikon pakai class dari devicon (pastikan sudah import di main.css)
 const techStacks = [
   { name: "Node.js", icon: "devicon-nodejs-plain colored" },
   { name: "Express.js", icon: "devicon-express-original colored" },
@@ -24,27 +25,6 @@ const techStacks = [
   { name: "MySQL", icon: "devicon-mysql-plain colored" },
   { name: "Docker", icon: "devicon-docker-plain colored" },
   { name: "Git", icon: "devicon-git-plain colored" },
-];
-
-const projects = [
-  {
-    title: "Audit Trail Management System (ATMS)",
-    desc: "Sistem web dengan Node.js & Express untuk mencatat log aktivitas pengguna dan integrasi dengan Camunda dan Minio.",
-    link: "https://atms-project.vercel.app/",
-    stack: ["Node.js", "Express", "REST API"],
-  },
-  {
-    title: "Personal Portfolio Website",
-    desc: "Website portfolio interaktif menggunakan Vue.js dan Tailwind CSS dengan animasi AOS dan Typed.js.",
-    link: "https://portfolio-rizkialfian.vercel.app/",
-    stack: ["Vue.js", "TailwindCSS", "AOS"],
-  },
-  {
-    title: "Inventory Management System",
-    desc: "Aplikasi web CRUD untuk manajemen stok barang dengan autentikasi JWT dan database MySQL.",
-    link: "https://inventory-app.vercel.app/",
-    stack: ["Node.js", "Express", "MySQL"],
-  },
 ];
 
 onMounted(() => {
@@ -65,15 +45,14 @@ onMounted(() => {
 
 <template>
   <div
-    class="bg-gradient-to-b from-black via-gray-900 to-gray-950 min-h-screen text-white overflow-hidden"
+    class="bg-gradient-to-b from-black via-neutral-900 to-black min-h-screen text-white overflow-hidden"
   >
-    <!-- Hero Section -->
     <section
       class="flex flex-col-reverse lg:flex-row items-center justify-between px-8 md:px-20 pt-16 lg:pt-28 gap-12"
     >
       <div class="max-w-xl text-center lg:text-left" data-aos="fade-right">
         <h1
-          class="text-5xl font-extrabold bg-gradient-to-r from-red-500 via-pink-500 to-purple-500 bg-clip-text text-transparent"
+          class="text-5xl font-extrabold bg-gradient-to-r from-red-500 via-red-600 to-red-700 bg-clip-text text-transparent"
         >
           Muhammad Rizki Alfian
         </h1>
@@ -88,15 +67,16 @@ onMounted(() => {
           dengan fokus pada arsitektur bersih, performa tinggi, dan desain
           sistem yang terukur. Berpengalaman menggunakan
           <span class="text-blue-400">Node.js</span>,
-          <span class="text-green-400">Vue.js</span>, dan REST API untuk
-          membangun aplikasi modern yang efisien dan mudah di-maintain.
+          <span class="text-green-400">Vue.js</span>, dan
+          <span class="text-red-700">REST API</span> untuk membangun aplikasi
+          modern yang efisien dan mudah di-maintain.
         </p>
 
         <div class="mt-8 flex gap-4 justify-center lg:justify-start">
           <a
             href="https://drive.google.com/file/d/1dojd7cKoFxBwSa9NAE6YeNYCzTP7RM2R/view?usp=sharing"
             target="_blank"
-            class="flex items-center gap-2 px-6 py-2.5 rounded-xl bg-gradient-to-r from-red-500 to-purple-600 text-white font-semibold shadow-lg hover:scale-110 hover:shadow-red-600/50 transition duration-300"
+            class="flex items-center gap-2 px-6 py-2.5 rounded-xl bg-gradient-to-r from-red-500 via-red-600 to-red-700 text-white font-semibold shadow-lg hover:scale-110 hover:shadow-red-600/50 transition duration-300"
           >
             <FileDown class="w-5 h-5" />
             Lihat CV
@@ -116,7 +96,7 @@ onMounted(() => {
           />
         </div>
         <div
-          class="absolute -inset-1 rounded-2xl bg-gradient-to-r from-red-500 to-purple-600 opacity-30 blur-lg group-hover:opacity-70 transition duration-500"
+          class="absolute -inset-1 rounded-2xl bg-gradient-to-r opacity-30 blur-lg group-hover:opacity-70 transition duration-500"
         ></div>
       </div>
     </section>
@@ -124,7 +104,7 @@ onMounted(() => {
     <!-- Tech Stack Section -->
     <section id="tech" class="mt-28 px-8 md:px-20">
       <h1
-        class="text-3xl md:text-4xl font-bold text-center bg-gradient-to-r from-red-500 to-purple-500 bg-clip-text text-transparent mb-12"
+        class="text-3xl md:text-4xl font-bold text-center bg-gradient-to-r from-red-500 via-red-600 to-red-700 bg-clip-text text-transparent mb-12"
         data-aos="fade-up"
       >
         🧰 Tech Stack
@@ -152,7 +132,7 @@ onMounted(() => {
     <!-- Projects Section -->
     <section id="projects" class="mt-28 px-8 md:px-20">
       <h1
-        class="text-3xl md:text-4xl font-bold text-center bg-gradient-to-r from-red-500 to-purple-500 bg-clip-text text-transparent mb-12"
+        class="text-3xl md:text-4xl font-bold text-center bg-gradient-to-r from-red-500 via-red-600 to-red-700 bg-clip-text text-transparent mb-12"
         data-aos="fade-up"
       >
         🚀 Project Highlights
@@ -179,7 +159,7 @@ onMounted(() => {
           <a
             :href="project.link"
             target="_blank"
-            class="inline-flex items-center gap-2 text-red-400 hover:text-purple-400 transition"
+            class="inline-flex items-center gap-2 text-red-400 hover:text-red-500 transition"
           >
             Lihat Proyek
             <ExternalLink class="w-4 h-4" />
@@ -191,10 +171,10 @@ onMounted(() => {
     <!-- Contact Section -->
     <section id="contact" class="mt-28 px-8 md:px-20 pb-20">
       <h1
-        class="text-3xl md:text-4xl font-bold mb-12 text-center bg-gradient-to-r from-red-500 to-purple-500 bg-clip-text text-transparent"
+        class="text-3xl md:text-4xl font-bold mb-12 text-center bg-gradient-to-r from-red-500 via-red-600 to-red-700 bg-clip-text text-transparent"
         data-aos="fade-up"
       >
-        📬 Hubungi Saya
+        📬 CONTACK US
       </h1>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -206,18 +186,18 @@ onMounted(() => {
         >
           <Github class="w-10 h-10 text-white mb-3" />
           <h3 class="text-lg font-semibold text-white">Github</h3>
-          <p class="text-sm text-gray-400 mt-1">github.com/bagheera30</p>
+          <p class="text-sm text-gray-400 mt-1">bagheera30</p>
         </a>
 
         <a
-          href="https://wa.me/6281386318321"
+          href="mailto:rizkialfian30103@gmail.com"
           target="_blank"
-          class="flex flex-col items-center justify-center p-6 rounded-2xl bg-gradient-to-tr from-green-500 to-emerald-600 shadow-lg hover:scale-110 hover:shadow-[0_0_25px_#22c55e] transition duration-500"
+          class="flex flex-col items-center justify-center p-6 rounded-2xl bg-gradient-to-tr from-red-600 to-white shadow-lg hover:scale-110 hover:shadow-[0_0_25px_#22c55e] transition duration-500"
           data-aos="flip-up"
         >
-          <Phone class="w-10 h-10 text-white mb-3" />
-          <h3 class="text-lg font-semibold text-white">WhatsApp</h3>
-          <p class="text-sm text-gray-200 mt-1">+62 813-8631-8321</p>
+          <Mail class="w-10 h-10 text-white mb-3" />
+          <h3 class="text-lg font-semibold text-white">EMAIL</h3>
+          <p class="text-sm text-gray-200 mt-1">rizkialfian30103@gmail.com</p>
         </a>
 
         <a
@@ -229,7 +209,7 @@ onMounted(() => {
           <Linkedin class="w-10 h-10 text-white mb-3" />
           <h3 class="text-lg font-semibold text-white">LinkedIn</h3>
           <p class="text-sm text-gray-300 text-center mt-1">
-            linkedin.com/in/muhammad-rizki-alfian-a4a761222
+            muhammad-rizki-alfian-a4a761222
           </p>
         </a>
       </div>

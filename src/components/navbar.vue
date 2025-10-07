@@ -19,14 +19,14 @@ onBeforeUnmount(() => {
 
 <template>
   <div
-    class="fixed top-0 left-0 w-full z-50 transition-all duration-300"
+    class="fixed top-0 left-0 w-full z-50 h-20 transition-all duration-300"
     :class="
       isScrolled
         ? 'bg-cyan-950/70 backdrop-blur-sm shadow-md text-white'
         : 'bg-red-600 text-white'
     "
   >
-    <div class="navbar px-6">
+    <div class="navbar px-6 pt-3">
       <!-- Brand -->
       <div class="flex-1">
         <a
@@ -46,9 +46,12 @@ onBeforeUnmount(() => {
             </a>
           </li>
         </ul>
-        <button class="ml-1.5 b btn-circle">
-          <Mail :size="27" />
-        </button>
+        <a
+          class="pl-2.5 pt-3 hover:bg-gray-200 transition"
+          href="mailto:rizkialfian30103@gmail.com"
+        >
+          <Mail :size="35" />
+        </a>
       </div>
 
       <!-- Mobile Menu -->
@@ -61,9 +64,12 @@ onBeforeUnmount(() => {
           <li v-for="menu in menus" :key="menu.name">
             <a :href="menu.href">{{ menu.name }}</a>
           </li>
-          <button class="pl-2.5 pt-2.5" href="">
-            <Mail :size="24" />
-          </button>
+          <a
+            class="pl-2.5 pt-3 hover:bg-gray-200 transition"
+            href="mailto:rizkialfian30103@gmail.com"
+          >
+            <Mail :size="35" />
+          </a>
         </ul>
       </div>
     </div>

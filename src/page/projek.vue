@@ -1,30 +1,7 @@
 <script setup lang="ts">
 import { Github } from "lucide-vue-next";
 
-const projects = [
-  {
-    title: "Audit Trail Management System (ATMS)",
-    desc: "Sistem berbasis web dengan REST API menggunakan Node.js & Express untuk mencatat log aktivitas pengguna dan integrasi dengan service lain seperti camunda dan minio.",
-    link: "https://atms-project.vercel.app/",
-    img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
-    stack: ["Node.js", "Express", "REST API"],
-    github: "https://github.com/username/atms",
-  },
-  {
-    title: "Wspend",
-    desc: "Aplikasi web toko online dengan fitur katalog, keranjang belanja, dan sistem pembayaran.",
-    link: "https://web-ecommers.vercel.app/",
-    stack: ["Astro.js", "Tailwind", "Vercel"],
-    github: "https://github.com/username/wspend",
-  },
-  {
-    title: "Backend Pegawai Management",
-    desc: "Membangun backend untuk management projek antara pegawai dengan manager.",
-    link: "#",
-    stack: ["Express", "Neo4j", "Swagger"],
-    github: "https://github.com/username/backend-pegawai",
-  },
-];
+import { projects } from "../data/datas";
 
 const stackLogos: Record<string, string> = {
   "Node.js":
@@ -47,9 +24,11 @@ const stackLogos: Record<string, string> = {
 </script>
 
 <template>
-  <div class="pt-10">
+  <div class="bg-gradient-to-b from-black via-neutral-900 to-black">
     <div class="container mx-auto px-4 py-10">
-      <h2 class="text-3xl font-bold mb-8 text-center text-white">
+      <h2
+        class="text-3xl font-bold mb-8 text-center bg-gradient-to-r from-red-500 via-red-600 to-red-700 bg-clip-text text-transparent"
+      >
         ✨ Projek yang Pernah Dikerjakan
       </h2>
 
@@ -63,12 +42,14 @@ const stackLogos: Record<string, string> = {
           <figure class="size-36">
             <img :src="project.img" :alt="project.title" />
           </figure>
-          <h3 class="text-xl pt-5 font-semibold text-white mb-2">
+          <h3
+            class="text-xl pt-5 bg-gradient-to-r from-red-500 via-red-600 to-red-700 bg-clip-text text-transparent font-bold mb-2"
+          >
             {{ project.title }}
           </h3>
 
           <!-- Deskripsi -->
-          <p class="text-gray-300 mb-4 text-sm">
+          <p class="text-gray-400 mb-4 text-sm">
             {{ project.desc }}
           </p>
 

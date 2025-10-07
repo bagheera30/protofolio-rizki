@@ -118,23 +118,23 @@ async function handleSubmit() {
 
           <div class="flex flex-wrap justify-center gap-4 mt-4">
             <a
-              href="#"
+              href="https://www.linkedin.com/in/muhammad-rizki-alfian-a4a761222"
               target="_blank"
-              class="btn btn-ghost btn-sm gap-2 hover:bg-red-600/20 transition"
+              class="btn btn-ghost btn-sm gap-2 hover:bg-red-600/20 hover:text-white/70 transition"
             >
               <Linkedin class="w-4 h-4 text-red-500" /> LinkedIn
             </a>
             <a
-              href="#"
+              href="https://github.com/bagheera30"
               target="_blank"
-              class="btn btn-ghost btn-sm gap-2 hover:bg-red-600/20 transition"
+              class="btn btn-ghost btn-sm gap-2 hover:bg-red-600/20 hover:text-white/70 transition"
             >
               <Github class="w-4 h-4 text-red-500" /> GitHub
             </a>
             <a
               href="#"
               target="_blank"
-              class="btn btn-ghost btn-sm gap-2 hover:bg-red-600/20 transition"
+              class="btn btn-ghost btn-sm gap-2 hover:bg-red-600/20 hover:text-white/70 transition"
             >
               <Instagram class="w-4 h-4 text-red-500" /> Instagram
             </a>
@@ -171,16 +171,24 @@ async function handleSubmit() {
               required
             ></textarea>
           </div>
-
-          <button
-            type="submit"
-            class="btn w-full bg-red-600 hover:bg-red-700 border-none text-white flex items-center justify-center gap-2 transition-all duration-200"
-            :disabled="sending"
-          >
-            <Send class="w-4 h-4" />
-            <span v-if="!sending">Send Message</span>
-            <span v-else>Sending...</span>
-          </button>
+          <div class="flex justify-between">
+            <button
+              type="submit"
+              class="btn bg-red-600 hover:bg-red-700 border-none text-white flex items-center justify-center gap-2 transition-all duration-200"
+              :disabled="sending"
+            >
+              <Send class="w-4 h-4" />
+              <span v-if="!sending">Send Message</span>
+              <span v-else>Sending...</span>
+            </button>
+            <a
+              href="mailto:rizkialfian30103@gmail.com"
+              class="btn bg-red-800 hover:bg-red-900 border-none text-white"
+            >
+              <Mail class="w-5 h-5" />
+              direct email
+            </a>
+          </div>
 
           <div>
             <p v-if="error" class="text-sm text-red-400 text-center">
