@@ -46,12 +46,6 @@ onBeforeUnmount(() => {
             </a>
           </li>
         </ul>
-        <a
-          class="pl-2.5 pt-3 hover:bg-gray-200 transition"
-          href="mailto:rizkialfian30103@gmail.com"
-        >
-          <Mail :size="35" />
-        </a>
       </div>
 
       <!-- Mobile Menu -->
@@ -64,12 +58,6 @@ onBeforeUnmount(() => {
           <li v-for="menu in menus" :key="menu.name">
             <a :href="menu.href">{{ menu.name }}</a>
           </li>
-          <a
-            class="pl-2.5 pt-3 hover:bg-gray-200 transition"
-            href="mailto:rizkialfian30103@gmail.com"
-          >
-            <Mail :size="35" />
-          </a>
         </ul>
       </div>
     </div>

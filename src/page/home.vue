@@ -4,7 +4,6 @@ import Typed from "typed.js";
 import {
   Github,
   Linkedin,
-  Phone,
   FileDown,
   ExternalLink,
   Mail,
@@ -14,6 +13,8 @@ import AOS from "aos";
 import { projects } from "../data/datas";
 // @ts-ignore
 const url_profile = import.meta.env.VITE_URL_PROFILE;
+// @ts-ignore
+const url_cv = import.meta.env.VITE_URL_DOWNLOAD_CV;
 const typedElement = ref(null);
 
 const techStacks = [
@@ -62,19 +63,22 @@ onMounted(() => {
         </h2>
 
         <p class="mt-6 text-gray-400 leading-relaxed text-base md:text-lg">
-          Saya seorang
+          I am a
           <span class="text-white font-semibold">Fullstack Developer</span>
-          dengan fokus pada arsitektur bersih, performa tinggi, dan desain
-          sistem yang terukur. Berpengalaman menggunakan
-          <span class="text-blue-400">Node.js</span>,
-          <span class="text-green-400">Vue.js</span>, dan
-          <span class="text-red-700">REST API</span> untuk membangun aplikasi
-          modern yang efisien dan mudah di-maintain.
+          and a recent graduate in
+          <span class="text-blue-400 font-medium">Software Engineering</span>
+          from
+          <span class="text-red-500 font-semibold">Telkom University</span>,
+          focusing on clean architecture, high performance, and scalable system
+          design. Experienced using <span class="text-blue-400">Node.js</span>,
+          <span class="text-green-400">Vue.js</span>, and
+          <span class="text-red-700">REST API</span> to build modern, efficient,
+          and easy-to-maintain applications.
         </p>
 
         <div class="mt-8 flex gap-4 justify-center lg:justify-start">
           <a
-            href="https://drive.google.com/file/d/1dojd7cKoFxBwSa9NAE6YeNYCzTP7RM2R/view?usp=sharing"
+            :href="url_cv"
             target="_blank"
             class="flex items-center gap-2 px-6 py-2.5 rounded-xl bg-gradient-to-r from-red-500 via-red-600 to-red-700 text-white font-semibold shadow-lg hover:scale-110 hover:shadow-red-600/50 transition duration-300"
           >
@@ -115,10 +119,11 @@ onMounted(() => {
           class="flex gap-10 animate-scroll whitespace-nowrap"
           data-aos="zoom-in"
         >
+          <!-- kita duplikat isi array dua kali untuk transisi halus -->
           <div
             v-for="tech in [...techStacks, ...techStacks]"
             :key="tech.name + Math.random()"
-            class="flex flex-col items-center justify-center min-w-[100px] hover:scale-110 transition duration-300"
+            class="flex flex-col items-center justify-center min-h-9 min-w-[120px] hover:scale-110 transition duration-300"
           >
             <i :class="tech.icon + ' text-6xl mb-2'"></i>
             <span class="text-sm text-gray-300 font-medium">{{
@@ -140,11 +145,14 @@ onMounted(() => {
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div
-          v-for="project in projects"
-          :key="project.title"
+          v-for="project in projects.slice(0, 3)"
+          :key="project.id"
           class="bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-2xl shadow-lg hover:scale-105 hover:shadow-red-600/40 transition duration-500"
           data-aos="flip-up"
         >
+          <figure class="size-36">
+            <img :src="project.img" :alt="project.title" />
+          </figure>
           <h3 class="text-xl font-bold text-white mb-2">{{ project.title }}</h3>
           <p class="text-gray-400 text-sm mb-4">{{ project.desc }}</p>
           <div class="flex flex-wrap gap-2 mb-4">
@@ -156,14 +164,13 @@ onMounted(() => {
               {{ tag }}
             </span>
           </div>
-          <a
-            :href="project.link"
-            target="_blank"
+          <RouterLink
+            :to="`/projek/${project.id}`"
             class="inline-flex items-center gap-2 text-red-400 hover:text-red-500 transition"
           >
             Lihat Proyek
             <ExternalLink class="w-4 h-4" />
-          </a>
+          </RouterLink>
         </div>
       </div>
     </section>
@@ -192,7 +199,7 @@ onMounted(() => {
         <a
           href="mailto:rizkialfian30103@gmail.com"
           target="_blank"
-          class="flex flex-col items-center justify-center p-6 rounded-2xl bg-gradient-to-tr from-red-600 to-white shadow-lg hover:scale-110 hover:shadow-[0_0_25px_#22c55e] transition duration-500"
+          class="flex flex-col items-center justify-center p-6 rounded-2xl bg-gradient-to-tr from-red-600 to-blue-500 shadow-lg hover:scale-110 hover:shadow-blue-400/60 transition duration-500"
           data-aos="flip-up"
         >
           <Mail class="w-10 h-10 text-white mb-3" />
@@ -229,6 +236,11 @@ onMounted(() => {
 
 .animate-scroll {
   display: flex;
-  animation: scroll 25s linear infinite;
+  width: max-content;
+  animation: scroll 40s linear infinite;
+}
+
+.animate-scroll:hover {
+  animation-play-state: paused; /* opsional: berhenti saat hover */
 }
 </style>
