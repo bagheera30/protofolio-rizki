@@ -78,7 +78,6 @@ onMounted(() => {
           },
           ticks: {
             display: false,
-            // ❌ HAPUS beginAtZero dan max dari sini
           },
         },
       },

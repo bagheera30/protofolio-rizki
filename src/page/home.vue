@@ -11,7 +11,7 @@ import {
 import ProjectModal from "../components/projekDetail.vue";
 
 import AOS from "aos";
-import { projects, skills, stackLogos } from "../data/datas";
+import { projects, stackLogos } from "../data/datas";
 import Skill from "../components/skill.vue";
 
 const labels = ["Frontend", "Backend", "Database", "UI/UX", "DevOps"];
