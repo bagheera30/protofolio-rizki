@@ -8,9 +8,14 @@ import {
   ExternalLink,
   Mail,
 } from "lucide-vue-next";
+import ProjectModal from "../components/projekDetail.vue";
 
 import AOS from "aos";
-import { projects } from "../data/datas";
+import { projects, skills, stackLogos } from "../data/datas";
+import Skill from "../components/skill.vue";
+
+const labels = ["Frontend", "Backend", "Database", "UI/UX", "DevOps"];
+const skillData = [85, 90, 75, 45, 80 ];
 // @ts-ignore
 const url_profile = import.meta.env.VITE_URL_PROFILE;
 // @ts-ignore
@@ -27,6 +32,18 @@ const techStacks = [
   { name: "Docker", icon: "devicon-docker-plain colored" },
   { name: "Git", icon: "devicon-git-plain colored" },
 ];
+const selectedProject = ref<any | null>(null);
+const isModalOpen = ref(false);
+
+const openModal = (project: any) => {
+  selectedProject.value = project;
+  isModalOpen.value = true;
+};
+
+const closeModal = () => {
+  selectedProject.value = null;
+  isModalOpen.value = false;
+};
 
 onMounted(() => {
   new Typed(typedElement.value, {
@@ -133,8 +150,7 @@ onMounted(() => {
         </div>
       </div>
     </section>
-
-    <!-- Projects Section -->
+    <Skill :labels="labels" :data="skillData" title="Skill Overview" />
     <section id="projects" class="mt-28 px-8 md:px-20">
       <h1
         class="text-3xl md:text-4xl font-bold text-center bg-gradient-to-r from-red-500 via-red-600 to-red-700 bg-clip-text text-transparent mb-12"
@@ -150,9 +166,6 @@ onMounted(() => {
           class="bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-2xl shadow-lg hover:scale-105 hover:shadow-red-600/40 transition duration-500"
           data-aos="flip-up"
         >
-          <figure class="size-36">
-            <img :src="project.img" :alt="project.title" />
-          </figure>
           <h3 class="text-xl font-bold text-white mb-2">{{ project.title }}</h3>
           <p class="text-gray-400 text-sm mb-4">{{ project.desc }}</p>
           <div class="flex flex-wrap gap-2 mb-4">
@@ -164,13 +177,13 @@ onMounted(() => {
               {{ tag }}
             </span>
           </div>
-          <RouterLink
-            :to="`/projek/${project.id}`"
+          <button
+            @click="openModal(project)"
             class="inline-flex items-center gap-2 text-red-400 hover:text-red-500 transition"
           >
             Lihat Proyek
             <ExternalLink class="w-4 h-4" />
-          </RouterLink>
+          </button>
         </div>
       </div>
     </section>
@@ -222,6 +235,12 @@ onMounted(() => {
       </div>
     </section>
   </div>
+  <ProjectModal
+    :isOpen="isModalOpen"
+    :project="selectedProject"
+    :stackLogos="stackLogos"
+    @close="closeModal"
+  />
 </template>
 
 <style scoped>
@@ -233,7 +252,12 @@ onMounted(() => {
     transform: translateX(-50%);
   }
 }
-
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
 .animate-scroll {
   display: flex;
   width: max-content;

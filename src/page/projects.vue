@@ -7,15 +7,19 @@ const activeTab = ref("projects");
 </script>
 
 <template>
-  <section class="flex flex-col items-center mt-10 px-4">
+  <section
+    class="flex flex-col items-center pt-10 px-4 bg-gradient-to-b from-black via-neutral-900 to-black"
+  >
     <!-- Judul -->
     <div class="text-center mb-20">
       <h2
         class="text-3xl font-bold bg-gradient-to-r from-red-500 via-red-600 to-red-700 bg-clip-text text-transparent"
       >
-        ✨ Projek yang Pernah Dikerjakan
+        ✨ Projects I've Worked On
       </h2>
-      <p class="text-white mt-2">ini contoh</p>
+      <p class="text-gray-400 pt-5 text-base">
+        Here are some examples of my previous work.
+      </p>
     </div>
 
     <!-- Tabs -->
