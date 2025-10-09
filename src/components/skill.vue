@@ -64,6 +64,8 @@ onMounted(() => {
       responsive: true,
       scales: {
         r: {
+          beginAtZero: true, // ✅ dipindah ke sini
+          max: 100, // ✅ dipindah ke sini
           angleLines: {
             color: "rgba(255, 255, 255, 0.1)",
           },
@@ -76,8 +78,7 @@ onMounted(() => {
           },
           ticks: {
             display: false,
-            beginAtZero: true,
-            max: 100,
+            // ❌ HAPUS beginAtZero dan max dari sini
           },
         },
       },
