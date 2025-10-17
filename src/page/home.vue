@@ -14,8 +14,8 @@ import AOS from "aos";
 import { projects, stackLogos } from "../data/datas";
 import Skill from "../components/skill.vue";
 
-const labels = ["Frontend", "Backend", "Database", "UI/UX", "DevOps"];
-const skillData = [85, 90, 75, 45, 80 ];
+const labels = ["Frontend", "Backend", "Database", "DevOps"];
+const skillData = [85, 90, 75, 45, 80];
 // @ts-ignore
 const url_profile = import.meta.env.VITE_URL_PROFILE;
 // @ts-ignore
@@ -31,6 +31,7 @@ const techStacks = [
   { name: "MySQL", icon: "devicon-mysql-plain colored" },
   { name: "Docker", icon: "devicon-docker-plain colored" },
   { name: "Git", icon: "devicon-git-plain colored" },
+  { name: "Ubuntu", icon: "devicon-ubuntu-plain colored" },
 ];
 const selectedProject = ref<any | null>(null);
 const isModalOpen = ref(false);

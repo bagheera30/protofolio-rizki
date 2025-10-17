@@ -21,6 +21,10 @@ const router = createRouter({
       path: "/cartived",
       component: () => import("./page/cartifide.vue"),
     },
+    {
+      path: "/expirence",
+      component: () => import("./page/expirence.vue"),
+    },
   ],
   history: createWebHistory(),
 });

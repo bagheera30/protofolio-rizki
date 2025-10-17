@@ -10,7 +10,9 @@ import Footer from "./components/footer.vue";
     <div class="pb-20">
       <Navbar />
     </div>
-    <router-view />
+    <div class="border-b border-gray-800">
+      <router-view />
+    </div>
     <Footer />
   </div>
 </template>

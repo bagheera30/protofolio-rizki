@@ -105,3 +105,14 @@ export const certificates: Cerf[] = [
         link: "https://www.ude.my/UC-bac82a54-3421-44b3-b197-60be603cd0a6",
     },
 ];
+
+export const expirence = [
+    {
+        id: 1,
+        perusahaan: 'sugity creative',
+        type: 'inteship',
+        name: 'build engine data',
+        tahun: 2024,
+        deskiripsi: 'merupakan website untuk memadai kegiatan yang tadinya dalam bentuk fisik ke dalam digitalisasi'
+    }
+]

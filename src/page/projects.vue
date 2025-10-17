@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { Github } from "lucide-vue-next";
-import Projek from "../page/projek.vue";
-import Repo from "../page/repo.vue";
+import Projek from "../components/projek.vue";
+import Repo from "../components/repo.vue";
 const activeTab = ref("projects");
 </script>
 
