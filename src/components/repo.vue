@@ -1,6 +1,6 @@
 <template>
   <div
-    class="min-h-screen px-6 py-12 bg-gradient-to-b from-gray-900 to-gray-950"
+    class="min-h-screen px-6 py-12 bg-gradient-to-b from-gray-900 to-gray-950 rounded-2xl"
   >
     <div class="max-w-7xl mx-auto">
       <!-- Search bar -->
@@ -128,7 +128,7 @@ const perPage = 9;
 onMounted(async () => {
   try {
     const res = await fetch(
-      `https://api.github.com/users/${username}/repos?per_page=100&sort=updated`
+      `https://api.github.com/users/${username}/repos?per_page=100&sort=updated`,
     );
     if (!res.ok) throw new Error("Failed to fetch repos");
     repos.value = await res.json();
@@ -142,13 +142,13 @@ onMounted(async () => {
 // Filter repos by search
 const filteredRepos = computed(() =>
   repos.value.filter((r) =>
-    r.name.toLowerCase().includes(search.value.toLowerCase())
-  )
+    r.name.toLowerCase().includes(search.value.toLowerCase()),
+  ),
 );
 
 // Pagination logic
 const totalPages = computed(() =>
-  Math.ceil(filteredRepos.value.length / perPage)
+  Math.ceil(filteredRepos.value.length / perPage),
 );
 const paginatedRepos = computed(() => {
   const start = (currentPage.value - 1) * perPage;

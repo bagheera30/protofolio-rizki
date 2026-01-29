@@ -30,6 +30,11 @@ export const stackLogos: Record<string, string> = {
         "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/neo4j/neo4j-original.svg",
     Swagger:
         "https://static1.smartbear.co/swagger/media/assets/images/swagger_logo.svg",
+    Java:
+        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+    PostgreSQL:
+        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+
 };
 
 export const projects = [
@@ -56,6 +61,14 @@ export const projects = [
         desc: "Membangun backend untuk management projek antara pegawai dengan manager.",
         link: "",
         stack: ["Express", "Neo4j", "Swagger"],
+        github: "https://github.com/username/backend-pegawai",
+    },
+    {
+        id: 4,
+        title: "Backend Aplikasi Teller",
+        desc: "Membangun backend untuk teller menggunakan untuk melayani nasabah",
+        link: "",
+        stack: ["Java", "PostgreSQL"],
         github: "https://github.com/username/backend-pegawai",
     },
 ];
