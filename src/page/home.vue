@@ -32,6 +32,7 @@ const techStacks = [
   { name: "Docker", icon: "devicon-docker-plain colored" },
   { name: "Git", icon: "devicon-git-plain colored" },
   { name: "Ubuntu", icon: "devicon-ubuntu-plain colored" },
+  { name: "Java", icon: "devicon-java-plain colored" },
 ];
 const selectedProject = ref<any | null>(null);
 const isModalOpen = ref(false);
