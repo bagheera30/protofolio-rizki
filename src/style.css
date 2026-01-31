@@ -1,12 +1,13 @@
 @import "tailwindcss";
-@plugin "daisyui";
 
-:root {
+@theme {
   --color-primary: rgb(220, 38, 38);
   --color-primary-dark: rgb(127, 29, 29);
   --color-secondary: rgb(30, 58, 138);
   --color-accent: rgb(59, 130, 246);
 }
+
+@plugin "daisyui";
 /* :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
