@@ -52,10 +52,10 @@ onMounted(() => {
           label: "Skill Level",
           data: props.data,
           fill: true,
-          backgroundColor: "rgba(239, 68, 68, 0.3)", // merah transparan
-          borderColor: "#ef4444",
-          pointBackgroundColor: "#ef4444",
-          pointBorderColor: "#fff",
+          backgroundColor: "rgba(251, 146, 60, 0.2)", // amber transparan
+          borderColor: "#f59e0b",
+          pointBackgroundColor: "#fbbf24",
+          pointBorderColor: "#0f172a",
           borderWidth: 2,
         },
       ],
@@ -64,17 +64,17 @@ onMounted(() => {
       responsive: true,
       scales: {
         r: {
-          beginAtZero: true, // ✅ dipindah ke sini
-          max: 100, // ✅ dipindah ke sini
+          beginAtZero: true,
+          max: 100,
           angleLines: {
-            color: "rgba(255, 255, 255, 0.1)",
+            color: "rgba(148, 163, 184, 0.15)",
           },
           grid: {
-            color: "rgba(255, 255, 255, 0.1)",
+            color: "rgba(148, 163, 184, 0.15)",
           },
           pointLabels: {
-            color: "#fff",
-            font: { size: 14 },
+            color: "#cbd5e1",
+            font: { size: 14, weight: 500 },
           },
           ticks: {
             display: false,
@@ -94,14 +94,15 @@ onMounted(() => {
 <template>
   <section class="mt-28 px-8 md:px-20">
     <h1
-      class="text-3xl md:text-4xl font-bold text-center bg-gradient-to-r from-red-500 via-red-600 to-red-700 bg-clip-text text-transparent mb-12"
+      class="text-3xl md:text-4xl font-bold text-center text-slate-100 mb-4"
       data-aos="fade-up"
     >
-      ⚒️ {{ title }}
+      {{ title }}
     </h1>
+    <p class="text-center text-slate-400 mb-12">My expertise across different areas</p>
 
     <div
-      class="max-w-xl mx-auto bg-neutral-900 p-8 rounded-2xl shadow-lg border border-neutral-800"
+      class="max-w-xl mx-auto bg-slate-800/40 p-8 rounded-xl shadow-lg border border-slate-700"
     >
       <canvas ref="chartRef"></canvas>
     </div>

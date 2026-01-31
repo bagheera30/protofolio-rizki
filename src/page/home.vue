@@ -65,33 +65,33 @@ onMounted(() => {
 
 <template>
   <div
-    class="bg-gradient-to-b from-black via-neutral-900 to-black min-h-screen text-white overflow-hidden"
+    class="bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 min-h-screen text-slate-100 overflow-hidden"
   >
     <section
       class="flex flex-col-reverse lg:flex-row items-center justify-between px-8 md:px-20 pt-16 lg:pt-28 gap-12"
     >
       <div class="max-w-xl text-center lg:text-left" data-aos="fade-right">
         <h1
-          class="text-5xl font-extrabold bg-gradient-to-r from-red-500 via-red-600 to-red-700 bg-clip-text text-transparent"
+          class="text-5xl lg:text-6xl font-bold text-slate-100 leading-tight"
         >
-          Muhammad Rizki Alfian
+          Muhammad Rizki<br><span class="text-amber-400">Alfian</span>
         </h1>
 
-        <h2 class="text-xl font-medium text-gray-300 mt-3 tracking-wide">
+        <h2 class="text-xl font-medium text-slate-300 mt-4 tracking-wide">
           <span ref="typedElement"></span>
         </h2>
 
-        <p class="mt-6 text-gray-400 leading-relaxed text-base md:text-lg">
+        <p class="mt-6 text-slate-400 leading-relaxed text-base md:text-lg">
           I am a
-          <span class="text-white font-semibold">Fullstack Developer</span>
+          <span class="text-slate-200 font-semibold">Fullstack Developer</span>
           and a recent graduate in
-          <span class="text-blue-400 font-medium">Software Engineering</span>
+          <span class="text-amber-400 font-medium">Software Engineering</span>
           from
-          <span class="text-red-500 font-semibold">Telkom University</span>,
+          <span class="text-amber-400 font-semibold">Telkom University</span>,
           focusing on clean architecture, high performance, and scalable system
-          design. Experienced using <span class="text-blue-400">Node.js</span>,
-          <span class="text-green-400">Vue.js</span>, and
-          <span class="text-red-700">REST API</span> to build modern, efficient,
+          design. Experienced using <span class="text-slate-200">Node.js</span>,
+          <span class="text-slate-200">Vue.js</span>, and
+          <span class="text-slate-200">REST API</span> to build modern, efficient,
           and easy-to-maintain applications.
         </p>
 
@@ -99,7 +99,7 @@ onMounted(() => {
           <a
             :href="url_cv"
             target="_blank"
-            class="flex items-center gap-2 px-6 py-2.5 rounded-xl bg-gradient-to-r from-red-500 via-red-600 to-red-700 text-white font-semibold shadow-lg hover:scale-110 hover:shadow-red-600/50 transition duration-300"
+            class="flex items-center gap-2 px-6 py-3 rounded-lg bg-amber-500 hover:bg-amber-600 text-slate-950 font-semibold shadow-lg hover:shadow-amber-500/50 transition duration-300 transform hover:scale-105"
           >
             <FileDown class="w-5 h-5" />
             Lihat CV
@@ -110,7 +110,7 @@ onMounted(() => {
       <!-- Avatar -->
       <div class="relative group" data-aos="fade-left">
         <div
-          class="w-56 h-64 sm:w-64 sm:h-72 rounded-2xl overflow-hidden ring-4 ring-red-500 shadow-xl transition duration-500 group-hover:scale-110 group-hover:rotate-3"
+          class="w-56 h-64 sm:w-64 sm:h-72 rounded-2xl overflow-hidden ring-4 ring-amber-400/50 shadow-2xl transition duration-500 group-hover:shadow-amber-400/30 group-hover:scale-105"
         >
           <img
             :src="url_profile"
@@ -119,7 +119,7 @@ onMounted(() => {
           />
         </div>
         <div
-          class="absolute -inset-1 rounded-2xl bg-gradient-to-r opacity-30 blur-lg group-hover:opacity-70 transition duration-500"
+          class="absolute -inset-1 rounded-2xl bg-gradient-to-r from-amber-400/20 to-transparent opacity-0 blur-lg group-hover:opacity-100 transition duration-500"
         ></div>
       </div>
     </section>
@@ -127,11 +127,12 @@ onMounted(() => {
     <!-- Tech Stack Section -->
     <section id="tech" class="mt-28 px-8 md:px-20">
       <h1
-        class="text-3xl md:text-4xl font-bold text-center bg-gradient-to-r from-red-500 via-red-600 to-red-700 bg-clip-text text-transparent mb-12"
+        class="text-3xl md:text-4xl font-bold text-center text-slate-100 mb-4"
         data-aos="fade-up"
       >
-        🧰 Tech Stack
+        Tech Stack
       </h1>
+      <p class="text-center text-slate-400 mb-12">Tools and technologies I work with</p>
 
       <div class="relative overflow-hidden">
         <div
@@ -142,10 +143,10 @@ onMounted(() => {
           <div
             v-for="tech in [...techStacks, ...techStacks]"
             :key="tech.name + Math.random()"
-            class="flex flex-col items-center justify-center min-h-9 min-w-[120px] hover:scale-110 transition duration-300"
+            class="flex flex-col items-center justify-center min-h-9 min-w-[120px] p-4 rounded-lg bg-slate-800/50 hover:bg-slate-700/50 transition duration-300 hover:scale-110"
           >
             <i :class="tech.icon + ' text-6xl mb-2'"></i>
-            <span class="text-sm text-gray-300 font-medium">{{
+            <span class="text-sm text-slate-300 font-medium">{{
               tech.name
             }}</span>
           </div>
@@ -155,33 +156,34 @@ onMounted(() => {
     <Skill :labels="labels" :data="skillData" title="Skill Overview" />
     <section id="projects" class="mt-28 px-8 md:px-20">
       <h1
-        class="text-3xl md:text-4xl font-bold text-center bg-gradient-to-r from-red-500 via-red-600 to-red-700 bg-clip-text text-transparent mb-12"
+        class="text-3xl md:text-4xl font-bold text-center text-slate-100 mb-4"
         data-aos="fade-up"
       >
-        🚀 Project Highlights
+        Project Highlights
       </h1>
+      <p class="text-center text-slate-400 mb-12">Recent work and achievements</p>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div
           v-for="project in projects.slice(0, 3)"
           :key="project.id"
-          class="bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-2xl shadow-lg hover:scale-105 hover:shadow-red-600/40 transition duration-500"
+          class="bg-slate-800/40 border border-slate-700 p-6 rounded-xl shadow-lg hover:shadow-amber-400/20 hover:border-amber-400/30 transition duration-500 group"
           data-aos="flip-up"
         >
-          <h3 class="text-xl font-bold text-white mb-2">{{ project.title }}</h3>
-          <p class="text-gray-400 text-sm mb-4">{{ project.desc }}</p>
+          <h3 class="text-xl font-bold text-slate-100 mb-2 group-hover:text-amber-400 transition">{{ project.title }}</h3>
+          <p class="text-slate-400 text-sm mb-4">{{ project.desc }}</p>
           <div class="flex flex-wrap gap-2 mb-4">
             <span
               v-for="tag in project.stack"
               :key="tag"
-              class="px-2 py-1 text-xs rounded-full bg-gray-700 text-gray-200"
+              class="px-2 py-1 text-xs rounded-full bg-slate-700/50 text-slate-300 border border-slate-600"
             >
               {{ tag }}
             </span>
           </div>
           <button
             @click="openModal(project)"
-            class="inline-flex items-center gap-2 text-red-400 hover:text-red-500 transition"
+            class="inline-flex items-center gap-2 text-amber-400 hover:text-amber-300 transition font-medium"
           >
             Lihat Proyek
             <ExternalLink class="w-4 h-4" />
@@ -193,45 +195,46 @@ onMounted(() => {
     <!-- Contact Section -->
     <section id="contact" class="mt-28 px-8 md:px-20 pb-20">
       <h1
-        class="text-3xl md:text-4xl font-bold mb-12 text-center bg-gradient-to-r from-red-500 via-red-600 to-red-700 bg-clip-text text-transparent"
+        class="text-3xl md:text-4xl font-bold mb-4 text-center text-slate-100"
         data-aos="fade-up"
       >
-        📬 CONTACK US
+        Get In Touch
       </h1>
+      <p class="text-center text-slate-400 mb-12">Connect with me on social platforms</p>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <a
           href="https://github.com/bagheera30"
           target="_blank"
-          class="flex flex-col items-center justify-center p-6 rounded-2xl bg-gradient-to-tr from-gray-800 to-gray-900 shadow-lg hover:scale-110 hover:shadow-[0_0_25px_#6366f1] transition duration-500"
+          class="flex flex-col items-center justify-center p-8 rounded-xl bg-slate-800/40 border border-slate-700 hover:border-amber-400/50 shadow-lg hover:shadow-amber-400/20 transition duration-500 group"
           data-aos="flip-left"
         >
-          <Github class="w-10 h-10 text-white mb-3" />
-          <h3 class="text-lg font-semibold text-white">Github</h3>
-          <p class="text-sm text-gray-400 mt-1">bagheera30</p>
+          <Github class="w-12 h-12 text-slate-300 mb-3 group-hover:text-amber-400 transition" />
+          <h3 class="text-lg font-semibold text-slate-100 group-hover:text-amber-400 transition">Github</h3>
+          <p class="text-sm text-slate-400 mt-1">bagheera30</p>
         </a>
 
         <a
           href="mailto:rizkialfian30103@gmail.com"
           target="_blank"
-          class="flex flex-col items-center justify-center p-6 rounded-2xl bg-gradient-to-tr from-red-600 to-blue-500 shadow-lg hover:scale-110 hover:shadow-blue-400/60 transition duration-500"
+          class="flex flex-col items-center justify-center p-8 rounded-xl bg-amber-400/10 border border-amber-400/30 hover:border-amber-400 hover:bg-amber-400/20 shadow-lg hover:shadow-amber-400/30 transition duration-500 group"
           data-aos="flip-up"
         >
-          <Mail class="w-10 h-10 text-white mb-3" />
-          <h3 class="text-lg font-semibold text-white">EMAIL</h3>
-          <p class="text-sm text-gray-200 mt-1">rizkialfian30103@gmail.com</p>
+          <Mail class="w-12 h-12 text-amber-400 mb-3 group-hover:scale-110 transition" />
+          <h3 class="text-lg font-semibold text-slate-100 group-hover:text-amber-300 transition">Email</h3>
+          <p class="text-sm text-slate-300 mt-1">rizkialfian30103@gmail.com</p>
         </a>
 
         <a
           href="https://www.linkedin.com/in/muhammad-rizki-alfian-a4a761222/"
           target="_blank"
-          class="flex flex-col items-center justify-center p-6 rounded-2xl bg-gradient-to-tr from-blue-500 to-indigo-600 shadow-lg hover:scale-110 hover:shadow-[0_0_25px_#3b82f6] transition duration-500"
+          class="flex flex-col items-center justify-center p-8 rounded-xl bg-slate-800/40 border border-slate-700 hover:border-amber-400/50 shadow-lg hover:shadow-amber-400/20 transition duration-500 group"
           data-aos="flip-right"
         >
-          <Linkedin class="w-10 h-10 text-white mb-3" />
-          <h3 class="text-lg font-semibold text-white">LinkedIn</h3>
-          <p class="text-sm text-gray-300 text-center mt-1">
-            muhammad-rizki-alfian-a4a761222
+          <Linkedin class="w-12 h-12 text-slate-300 mb-3 group-hover:text-amber-400 transition" />
+          <h3 class="text-lg font-semibold text-slate-100 group-hover:text-amber-400 transition">LinkedIn</h3>
+          <p class="text-sm text-slate-400 text-center mt-1">
+            muhammad-rizki-alfian
           </p>
         </a>
       </div>
