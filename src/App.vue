@@ -1,6 +1,9 @@
 <script setup>
 import Navbar from "./components/navbar.vue";
 import Footer from "./components/footer.vue";
+import { useTheme } from "./composables/useTheme";
+
+useTheme();
 </script>
 
 <template>
