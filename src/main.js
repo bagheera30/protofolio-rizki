@@ -22,6 +22,10 @@ const router = createRouter({
       component: () => import("./page/cartifide.vue"),
     },
     {
+      path: "/jurney",
+      component: () => import("./page/jurney.vue"),
+    },
+    {
       path: "/expirence",
       component: () => import("./page/expirence.vue"),
     },

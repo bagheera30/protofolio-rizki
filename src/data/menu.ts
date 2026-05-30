@@ -13,6 +13,7 @@ const menus: Menu[] = [
   { name: "Home", href: "/" },
   { name: "Projects", href: "/projek" },
   { name: "Cetifived", href: "/cartived" },
+  { name: "Jurney", href: "/jurney" },
   { name: "Contact", href: "/contact" },
 ];
 
