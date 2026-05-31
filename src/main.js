@@ -18,11 +18,11 @@ const router = createRouter({
       component: () => import("./page/contact.vue"),
     },
     {
-      path: "/cartived",
+      path: "/certificates",
       component: () => import("./page/cartifide.vue"),
     },
     {
-      path: "/jurney",
+      path: "/journey",
       component: () => import("./page/jurney.vue"),
     },
     {

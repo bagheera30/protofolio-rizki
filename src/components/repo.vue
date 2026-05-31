@@ -1,11 +1,9 @@
 <template>
-  <div
-    class="min-h-screen px-6 py-12 bg-gradient-to-b from-gray-900 to-gray-950 rounded-2xl"
-  >
+  <div class="px-6 py-8 bg-transparent">
     <div class="max-w-7xl mx-auto">
       <!-- Search bar -->
       <div
-        class="mb-10 flex items-center gap-3 bg-gray-800/60 backdrop-blur-lg border border-gray-700 rounded-2xl px-4 py-3 shadow-md"
+        class="mb-10 flex items-center gap-3 bg-slate-900/70 backdrop-blur-md border border-slate-800 rounded-2xl px-4 py-4"
       >
         <Search :size="22" class="text-gray-400" />
         <input
@@ -26,12 +24,12 @@
         <div
           v-for="repo in paginatedRepos"
           :key="repo.id"
-          class="card bg-gray-800/60 backdrop-blur-lg border border-gray-700 hover:shadow-2xl hover:scale-[1.02] transition-all duration-300"
+          class="bg-slate-900/70 backdrop-blur-md border border-slate-800 hover:border-rose-500/40 hover:-translate-y-1 transition-all duration-300"
         >
           <div class="card-body">
             <div class="flex justify-between items-center mb-2">
               <div
-                class="badge badge-outline border-indigo-400 text-indigo-400 px-3 py-1"
+                class="badge badge-outline border-rose-500 text-rose-400 px-3 py-1"
               >
                 {{ repo.language || "Unknown" }}
               </div>
@@ -42,7 +40,7 @@
             </div>
 
             <h2
-              class="card-title text-lg font-bold text-white hover:text-indigo-400 transition"
+              class="card-title text-lg font-bold text-white hover:text-rose-400 transition"
             >
               {{ repo.name }}
             </h2>
@@ -60,7 +58,7 @@
               <a
                 :href="repo.html_url"
                 target="_blank"
-                class="flex items-center gap-1 text-indigo-400 hover:text-pink-400 transition"
+                class="flex items-center gap-1 text-rose-400 hover:text-rose-300 transition"
               >
                 View <i class="fa-solid fa-arrow-up-right-from-square"></i>
               </a>
@@ -75,7 +73,7 @@
         class="flex justify-center items-center gap-4 mt-12"
       >
         <button
-          class="btn btn-sm bg-gray-800 border border-gray-700 hover:bg-indigo-600 text-gray-200"
+          class="btn btn-sm bg-gray-800 border border-gray-700 hover:bg-rose-600 text-gray-200"
           :disabled="currentPage === 1"
           @click="prevPage"
         >
@@ -89,7 +87,7 @@
         </div>
 
         <button
-          class="btn btn-sm bg-gray-800 border border-gray-700 hover:bg-indigo-600 text-gray-200"
+          class="btn btn-sm bg-gray-800 border border-gray-700 hover:bg-rose-600 text-gray-200"
           :disabled="currentPage === totalPages"
           @click="nextPage"
         >
@@ -131,7 +129,9 @@ onMounted(async () => {
       `https://api.github.com/users/${username}/repos?per_page=100&sort=updated`,
     );
     if (!res.ok) throw new Error("Failed to fetch repos");
-    repos.value = await res.json();
+    repos.value = (await res.json()).sort(
+      (a: any, b: any) => b.stargazers_count - a.stargazers_count,
+    );
   } catch (err) {
     console.error(err);
   } finally {
@@ -176,6 +176,6 @@ function formatDate(dateStr: string) {
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
-  transform: translateY(10px);
+  transform: tranzincY(10px);
 }
 </style>

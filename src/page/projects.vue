@@ -3,81 +3,83 @@ import { ref } from "vue";
 import { Github } from "lucide-vue-next";
 import Projek from "../components/projek.vue";
 import Repo from "../components/repo.vue";
+
 const activeTab = ref("projects");
 </script>
 
 <template>
   <section
-    class="flex flex-col items-center pt-10 px-4 bg-gradient-to-b from-black via-neutral-900 to-black"
+    class="w-full min-h-screen px-6 md:px-12 lg:px-20 py-20 bg-gradient-to-br from-slate-950 via-black to-slate-950"
   >
-    <!-- Judul -->
-    <div class="text-center mb-20">
+    <!-- Header -->
+    <div class="max-w-4xl mx-auto text-center">
       <h2
-        class="text-3xl font-bold bg-gradient-to-r from-red-500 via-red-600 to-red-700 bg-clip-text text-transparent"
+        class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-rose-400 via-rose-500 to-rose-600 bg-clip-text text-transparent"
       >
         ✨ Projects I've Worked On
       </h2>
-      <p class="text-gray-400 pt-5 text-base">
+
+      <p class="mt-5 text-slate-400 text-lg">
         Here are some examples of my previous work.
       </p>
     </div>
 
     <!-- Tabs -->
-    <div
-      class="flex bg-[#0e1628] text-sm rounded-lg border border-gray-700 overflow-hidden"
-    >
-      <!-- Tab 1 -->
-      <button
-        @click="activeTab = 'projects'"
-        :class="[
-          'px-6 py-3 font-medium transition-colors flex items-center gap-2',
-          activeTab === 'projects'
-            ? 'bg-[#1b2437] text-gray-100'
-            : 'text-gray-400 hover:text-gray-200',
-        ]"
+    <div class="flex justify-center mt-12">
+      <div
+        class="flex bg-slate-900 border border-slate-800 rounded-xl overflow-hidden shadow-lg"
       >
-        Featured Projects
-      </button>
+        <button
+          @click="activeTab = 'projects'"
+          :class="[
+            'px-8 py-3 font-medium transition-all duration-300',
+            activeTab === 'projects'
+              ? 'bg-rose-500 text-white'
+              : 'text-slate-400 hover:text-white',
+          ]"
+        >
+          Featured Projects
+        </button>
 
-      <!-- Tab 2 -->
-      <button
-        @click="activeTab = 'repos'"
-        :class="[
-          'px-6 py-3 font-medium transition-colors flex items-center gap-2',
-          activeTab === 'repos'
-            ? 'bg-[#1b2437] text-gray-100'
-            : 'text-gray-400 hover:text-gray-200',
-        ]"
-      >
-        <Github class="w-4 h-4" />
-        GitHub Repos
-      </button>
+        <button
+          @click="activeTab = 'repos'"
+          :class="[
+            'px-8 py-3 font-medium transition-all duration-300 flex items-center gap-2',
+            activeTab === 'repos'
+              ? 'bg-rose-500 text-white'
+              : 'text-slate-400 hover:text-white',
+          ]"
+        >
+          <Github class="w-4 h-4" />
+          GitHub Repos
+        </button>
+      </div>
     </div>
 
-    <!-- Konten dinamis -->
-    <transition name="fade" mode="out-in">
-      <div
-        v-if="activeTab === 'projects'"
-        key="projects"
-        class="mt-6 text-center text-gray-400"
-      >
-        <Projek />
-      </div>
+    <!-- Content -->
+    <div class="mt-12 w-full">
+      <transition name="fade" mode="out-in">
+        <div v-if="activeTab === 'projects'" key="projects">
+          <Projek />
+        </div>
 
-      <div v-else key="repos" class="mt-6 text-center text-gray-400">
-        <Repo />
-      </div>
-    </transition>
+        <div v-else key="repos">
+          <Repo />
+        </div>
+      </transition>
+    </div>
   </section>
 </template>
 
 <style scoped>
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.3s ease;
+  transition: all 0.25s ease;
 }
+
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
+  transform: translateY(10px);
 }
 </style>

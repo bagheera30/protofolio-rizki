@@ -65,19 +65,18 @@ onMounted(() => {
 
 <template>
   <div
-    class="bg-gradient-to-b from-black via-neutral-900 to-black min-h-screen text-white overflow-hidden"
+    class="bg-gradient-to-br from-slate-950 via-black to-rose-950/20 min-h-screen text-white overflow-hidden"
   >
     <section
       class="flex flex-col-reverse lg:flex-row items-center justify-between px-8 md:px-20 pt-16 lg:pt-28 gap-12"
     >
       <div class="max-w-xl text-center lg:text-left" data-aos="fade-right">
-        <h1
-          class="text-5xl font-extrabold bg-gradient-to-r from-red-500 via-red-600 to-red-700 bg-clip-text text-transparent"
-        >
-          Muhammad Rizki Alfian
+        <h1 class="text-5xl md:text-6xl font-bold text-slate-100 leading-tight">
+          Halo, saya
+          <span class="text-rose-500">Muhammad Rizki Alfian</span>
         </h1>
 
-        <h2 class="text-xl font-medium text-gray-300 mt-3 tracking-wide">
+        <h2 class="text-xl font-semibold text-rose-400 mt-3 tracking-wide">
           <span ref="typedElement"></span>
         </h2>
 
@@ -87,19 +86,19 @@ onMounted(() => {
           and a recent graduate in
           <span class="text-blue-400 font-medium">Software Engineering</span>
           from
-          <span class="text-red-500 font-semibold">Telkom University</span>,
+          <span class="text-slate-300 font-semibold">Telkom University</span>
           focusing on clean architecture, high performance, and scalable system
           design. Experienced using <span class="text-blue-400">Node.js</span>,
           <span class="text-green-400">Vue.js</span>, and
-          <span class="text-red-700">REST API</span> to build modern, efficient,
-          and easy-to-maintain applications.
+          <span class="text-rose-400">REST API</span> to build modern,
+          efficient, and easy-to-maintain applications.
         </p>
 
         <div class="mt-8 flex gap-4 justify-center lg:justify-start">
           <a
             :href="url_cv"
             target="_blank"
-            class="flex items-center gap-2 px-6 py-2.5 rounded-xl bg-gradient-to-r from-red-500 via-red-600 to-red-700 text-white font-semibold shadow-lg hover:scale-110 hover:shadow-red-600/50 transition duration-300"
+            class="flex items-center gap-2 px-6 py-2.5 rounded-xl bg-gradient-to-r from-rose-500 to-rose-600 text-white font-semibold shadow-lg hover:scale-110 hover:shadow-zinc-600/50 transition duration-300"
           >
             <FileDown class="w-5 h-5" />
             Lihat CV
@@ -110,7 +109,7 @@ onMounted(() => {
       <!-- Avatar -->
       <div class="relative group" data-aos="fade-left">
         <div
-          class="w-56 h-64 sm:w-64 sm:h-72 rounded-2xl overflow-hidden ring-4 ring-red-500 shadow-xl transition duration-500 group-hover:scale-110 group-hover:rotate-3"
+          class="w-56 h-64 sm:w-64 sm:h-72 rounded-2xl overflow-hidden ring-4 ring-rose-500/50 shadow-xl transition duration-500 group-hover:scale-110 group-hover:rotate-3"
         >
           <img
             :src="url_profile"
@@ -127,7 +126,7 @@ onMounted(() => {
     <!-- Tech Stack Section -->
     <section id="tech" class="mt-28 px-8 md:px-20">
       <h1
-        class="text-3xl md:text-4xl font-bold text-center bg-gradient-to-r from-red-500 via-red-600 to-red-700 bg-clip-text text-transparent mb-12"
+        class="text-3xl md:text-4xl font-bold text-center bg-gradient-to-r from-rose-400 via-rose-500 to-rose-600 bg-clip-text text-transparent mb-12"
         data-aos="fade-up"
       >
         🧰 Tech Stack
@@ -155,7 +154,7 @@ onMounted(() => {
     <Skill :labels="labels" :data="skillData" title="Skill Overview" />
     <section id="projects" class="mt-28 px-8 md:px-20">
       <h1
-        class="text-3xl md:text-4xl font-bold text-center bg-gradient-to-r from-red-500 via-red-600 to-red-700 bg-clip-text text-transparent mb-12"
+        class="text-3xl md:text-4xl font-bold text-center bg-gradient-to-r from-rose-400 via-rose-500 to-rose-600 bg-clip-text text-transparent mb-12"
         data-aos="fade-up"
       >
         🚀 Project Highlights
@@ -165,7 +164,7 @@ onMounted(() => {
         <div
           v-for="project in projects.slice(0, 3)"
           :key="project.id"
-          class="bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-2xl shadow-lg hover:scale-105 hover:shadow-red-600/40 transition duration-500"
+          class="bg-slate-900/70 border border-white/5 backdrop-blur-sm p-6 rounded-2xl shadow-lg hover:scale-105 hover:shadow-zinc-600/40 transition duration-500"
           data-aos="flip-up"
         >
           <h3 class="text-xl font-bold text-white mb-2">{{ project.title }}</h3>
@@ -181,7 +180,7 @@ onMounted(() => {
           </div>
           <button
             @click="openModal(project)"
-            class="inline-flex items-center gap-2 text-red-400 hover:text-red-500 transition"
+            class="inline-flex items-center gap-2 text-rose-400 hover:text-rose-300 transition"
           >
             Lihat Proyek
             <ExternalLink class="w-4 h-4" />
@@ -193,10 +192,10 @@ onMounted(() => {
     <!-- Contact Section -->
     <section id="contact" class="mt-28 px-8 md:px-20 pb-20">
       <h1
-        class="text-3xl md:text-4xl font-bold mb-12 text-center bg-gradient-to-r from-red-500 via-red-600 to-red-700 bg-clip-text text-transparent"
+        class="text-3xl md:text-4xl font-bold mb-12 text-center bg-gradient-to-r from-rose-400 via-rose-500 to-rose-600 bg-clip-text text-transparent"
         data-aos="fade-up"
       >
-        📬 CONTACK US
+        📬 CONTACT ME
       </h1>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -214,7 +213,7 @@ onMounted(() => {
         <a
           href="mailto:rizkialfian30103@gmail.com"
           target="_blank"
-          class="flex flex-col items-center justify-center p-6 rounded-2xl bg-gradient-to-tr from-red-600 to-blue-500 shadow-lg hover:scale-110 hover:shadow-blue-400/60 transition duration-500"
+          class="flex flex-col items-center justify-center p-6 rounded-2xl bg-gradient-to-tr from-zinc-600 to-blue-500 shadow-lg hover:scale-110 hover:shadow-blue-400/60 transition duration-500"
           data-aos="flip-up"
         >
           <Mail class="w-10 h-10 text-white mb-3" />

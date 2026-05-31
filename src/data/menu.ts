@@ -12,8 +12,8 @@ export interface Cerf {
 const menus: Menu[] = [
   { name: "Home", href: "/" },
   { name: "Projects", href: "/projek" },
-  { name: "Cetifived", href: "/cartived" },
-  { name: "Jurney", href: "/jurney" },
+  { name: "Certificates", href: "/certificates" },
+  { name: "Journey", href: "/journey" },
   { name: "Contact", href: "/contact" },
 ];
 

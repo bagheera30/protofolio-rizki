@@ -19,7 +19,7 @@ Chart.register(
   LineElement,
   Filler,
   Tooltip,
-  Legend
+  Legend,
 );
 
 // Props biar bisa dikustomisasi dari luar
@@ -94,7 +94,7 @@ onMounted(() => {
 <template>
   <section class="mt-28 px-8 md:px-20">
     <h1
-      class="text-3xl md:text-4xl font-bold text-center bg-gradient-to-r from-red-500 via-red-600 to-red-700 bg-clip-text text-transparent mb-12"
+      class="text-3xl md:text-4xl font-bold text-center bg-gradient-to-r from-zinc-500 via-zinc-600 to-zinc-700 bg-clip-text text-transparent mb-12"
       data-aos="fade-up"
     >
       ⚒️ {{ title }}

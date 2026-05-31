@@ -19,20 +19,22 @@ const closeModal = () => {
 </script>
 
 <template>
-  <div class="bg-gradient-to-b from-black via-neutral-900 max-w-7xl to-black">
+  <div
+    class="max-w-7xl mx-auto bg-gradient-to-b from-black via-neutral-900 to-black"
+  >
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       <div
         v-for="project in projects"
         :key="project.id"
-        class="bg-gray-800/70 backdrop-blur-md rounded-2xl shadow-lg p-6 hover:shadow-xl hover:-translate-y-2 hover:shadow-red-600/40 transition-all duration-500 flex flex-col"
+        class="bg-slate-900/70 border border-slate-800 backdrop-blur-md rounded-2xl shadow-lg p-6 hover:shadow-xl hover:-translate-y-2 hover:shadow-zinc-600/40 transition-all duration-500 flex flex-col"
       >
         <h3
-          class="text-xl pt-5 bg-gradient-to-r from-red-500 via-red-600 to-red-700 bg-clip-text text-center text-transparent font-bold mb-2"
+          class="text-xl pt-5 bg-gradient-to-r from-rose-400 via-rose-500 to-rose-600 bg-clip-text text-center text-transparent font-bold mb-2"
         >
           {{ project.title }}
         </h3>
 
-        <p class="text-gray-400 mb-4 text-sm line-clamp-3">
+        <p class="text-slate-300 mb-4 text-sm line-clamp-3">
           {{ project.desc }}
         </p>
 
@@ -40,7 +42,7 @@ const closeModal = () => {
           <div
             v-for="tech in project.stack"
             :key="tech"
-            class="flex items-center gap-2 bg-gray-700/50 px-3 py-1 rounded-lg"
+            class="flex items-center gap-2 bg-slate-800 border border-slate-700 px-3 py-1 rounded-lg"
           >
             <img
               v-if="stackLogos[tech]"
@@ -59,14 +61,14 @@ const closeModal = () => {
             v-if="project.github"
             :href="project.github"
             target="_blank"
-            class="flex items-center gap-2 text-gray-200 hover:text-white transition"
+            class="flex items-center gap-2 text-slate-300 hover:text-white transition"
           >
             <Github class="w-5 h-5" />
             <span class="text-sm">Github</span>
           </a>
 
           <button
-            class="text-sm text-blue-400 font-medium hover:underline"
+            class="text-sm text-rose-400 hover:text-rose-300 font-medium hover:underline"
             @click="openModal(project)"
           >
             Lihat Detail →

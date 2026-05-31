@@ -1,3 +1,5 @@
+
+
 export interface projek {
     title: string,
     desc: string,
@@ -6,10 +8,12 @@ export interface projek {
     stack: Array<string>,
     github: string,
 }
+
 export interface Cerf {
     title: string,
     org: string
     year: string,
+    img: string,
     id: string,
     link: string
 }
@@ -171,7 +175,7 @@ export const projects = [
     },
     {
         id: 4,
-        title: "Backend Aplikasi Teller",
+        title: "Branch Delevery Service",
         desc: "Membangun backend untuk teller menggunakan untuk melayani nasabah",
         link: "",
         stack: ["Java", "PostgreSQL"],
@@ -192,6 +196,7 @@ export const certificates: Cerf[] = [
         title: "Computer Vision.",
         org: "kaggle",
         year: "2025",
+        img: "/certif/Computer.webp",
         id: "Computer Vision-2025",
         link: "https://www.kaggle.com/learn/certification/muhammadrizkialfian/computer-vision",
     },
@@ -199,6 +204,7 @@ export const certificates: Cerf[] = [
         title: "Intermediate Machine Learning.",
         org: "kaggle",
         year: "2025",
+        img: "/certif/Intermediate-Machine-Learning.webp",
         id: "Intermediate Machine Learning-2023",
         link: "https://www.kaggle.com/learn/certification/muhammadrizkialfian/intermediate-machine-learning",
     },
@@ -206,6 +212,7 @@ export const certificates: Cerf[] = [
         title: "Intro to Deep Learning.",
         org: "kaggle",
         year: "2025",
+        img: "/certif/Introto-Deep.webp",
         id: "Intro to Deep Learning-2025",
         link: "https://www.kaggle.com/learn/certification/muhammadrizkialfian/intro-to-deep-learning",
     },
@@ -213,12 +220,14 @@ export const certificates: Cerf[] = [
         title: "Basic javascript",
         org: "hacker Rank",
         year: "2023",
+        img: "/certif/javascript.webp",
         id: "FBOBA98E555C",
         link: "https://www.hackerrank.com/certificates/fb08a98e555c",
     },
     {
         title: "Linux command line: From zero to Hero",
         org: "udemy",
+        img: "/certif/linux.webp",
         year: "2025",
         id: "UC-bac82a54-3421-44b3-b197-60be603cd0a6",
         link: "https://www.ude.my/UC-bac82a54-3421-44b3-b197-60be603cd0a6",

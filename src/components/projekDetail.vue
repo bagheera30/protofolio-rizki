@@ -13,28 +13,33 @@ const emit = defineEmits(["close"]);
 
 <template>
   <dialog v-if="isOpen" open class="modal modal-bottom sm:modal-middle">
-    <div class="modal-box bg-gray-900 text-gray-100">
+    <div
+      class="modal-box bg-slate-900 border border-slate-800 text-slate-100 shadow-2xl"
+    >
       <!-- Header -->
       <div class="flex justify-between items-center mb-4">
         <h3
-          class="text-xl font-bold bg-gradient-to-r from-red-500 via-red-600 to-red-700 bg-clip-text text-transparent"
+          class="text-xl font-bold bg-gradient-to-r from-rose-400 via-rose-500 to-rose-600 bg-clip-text text-transparent"
         >
           {{ project?.title }}
         </h3>
-        <button class="btn btn-sm btn-circle btn-ghost" @click="$emit('close')">
+        <button
+          class="p-2 rounded-lg hover:bg-slate-800 transition"
+          @click="$emit('close')"
+        >
           <X class="w-5 h-5" />
         </button>
       </div>
 
       <!-- Deskripsi -->
-      <p class="text-gray-400 mb-4">{{ project?.desc }}</p>
+      <p class="text-slate-300 mb-4">{{ project?.desc }}</p>
 
       <!-- Stack -->
       <div class="flex flex-wrap gap-2 mb-6">
         <div
           v-for="tech in project?.stack"
           :key="tech"
-          class="flex items-center gap-2 bg-gray-800 px-3 py-1 rounded-lg"
+          class="flex items-center gap-2 bg-slate-800 border border-slate-700 px-3 py-1 rounded-lg"
         >
           <img
             v-if="stackLogos[tech]"
@@ -52,7 +57,7 @@ const emit = defineEmits(["close"]);
           v-if="project?.link"
           :href="project.link"
           target="_blank"
-          class="btn btn-sm btn-outline border-blue-600 text-blue-500 hover:bg-blue-600 hover:text-white"
+          class="btn btn-sm bg-rose-500 border-none text-white hover:bg-rose-600"
         >
           <Eye class="w-4 h-4 mr-2" /> View Projek
         </a>
@@ -60,11 +65,16 @@ const emit = defineEmits(["close"]);
           v-if="project?.github"
           :href="project.github"
           target="_blank"
-          class="btn btn-sm btn-outline border-red-600 text-red-500 hover:bg-red-600 hover:text-white"
+          class="btn btn-sm btn-outline border-slate-700 text-slate-300 hover:bg-slate-800 hover:border-slate-600"
         >
           <Github class="w-4 h-4 mr-2" /> Github
         </a>
-        <button class="btn btn-sm" @click="$emit('close')">Tutup</button>
+        <button
+          class="btn btn-sm bg-slate-800 border-none text-slate-200 hover:bg-slate-700"
+          @click="$emit('close')"
+        >
+          Tutup
+        </button>
       </div>
     </div>
 
@@ -73,3 +83,9 @@ const emit = defineEmits(["close"]);
     </form>
   </dialog>
 </template>
+<style scoped>
+.modal-backdrop {
+  backdrop-filter: blur(6px);
+  background: rgba(0, 0, 0, 0.65);
+}
+</style>

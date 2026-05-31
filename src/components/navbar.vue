@@ -23,7 +23,7 @@ onBeforeUnmount(() => {
     :class="
       isScrolled
         ? 'bg-cyan-950/70 backdrop-blur-sm shadow-md text-white'
-        : 'bg-red-600 text-white'
+        : 'bg-slate-900/80 backdrop-blur-md border-b border-slate-800'
     "
   >
     <div class="navbar px-6 pt-3">
@@ -53,7 +53,7 @@ onBeforeUnmount(() => {
         <label tabindex="0" class="btn btn-ghost text-white">☰</label>
         <ul
           tabindex="0"
-          class="menu menu-sm dropdown-content mt-3 p-2 shadow bg-red-600 rounded-box w-40"
+          class="menu menu-sm dropdown-content mt-3 p-2 shadow bg-zinc-600 rounded-box w-40"
         >
           <li v-for="menu in menus" :key="menu.name">
             <a :href="menu.href">{{ menu.name }}</a>
