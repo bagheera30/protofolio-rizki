@@ -2,7 +2,10 @@ import { createApp } from "vue";
 import "./style.css";
 import App from "./App.vue";
 import { createRouter, createWebHistory } from "vue-router";
+import favicon from "./assets/1000050048.svg";
 
+const link = document.querySelector("link[rel~='icon']");
+link.href = favicon;
 const router = createRouter({
   routes: [
     {
@@ -28,6 +31,10 @@ const router = createRouter({
     {
       path: "/expirence",
       component: () => import("./page/expirence.vue"),
+    },
+    {
+      path: "/:pathMatch(.*)*",
+      redirect: "/",
     },
   ],
   history: createWebHistory(),
