@@ -2,7 +2,7 @@ import { createApp } from "vue";
 import "./style.css";
 import App from "./App.vue";
 import { createRouter, createWebHistory } from "vue-router";
-import favicon from "./assets/1000050048.svg";
+import favicon from "../public/logo.svg";
 
 const link = document.querySelector("link[rel~='icon']");
 link.href = favicon;

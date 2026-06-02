@@ -31,9 +31,11 @@ onBeforeUnmount(() => {
       <div class="flex-1">
         <a
           href="/"
-          class="text-2xl font-bold tracking-wide hover:text-gray-200 transition"
+          class="inline-flex items-center gap-3 text-2xl font-bold tracking-wide hover:text-gray-200 transition"
         >
-          Rizki Alfian
+          <img src="/logo.svg" alt="Logo Rizki Alfian" class="w-9 h-9" />
+
+          <span>Rizki Alfian</span>
         </a>
       </div>
 
